@@ -12,6 +12,9 @@ Legajo 1081481
 Sergio Garroni (sgarroni@uade.edu.ar)
 Legajo 1122639
 
+Federico Sena (fsena@uade.edu.ar)
+Legajo 1112998
+
 
 Año 2023, 1er Cuatrimestre
 
