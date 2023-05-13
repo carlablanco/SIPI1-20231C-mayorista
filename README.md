@@ -12,6 +12,8 @@ Legajo 1081481
 Sergio Garroni (sgarroni@uade.edu.ar)
 Legajo 1122639
 
+Nicole Blanco (nicoblanco@uade.edu.ar)
+Legajo 112631
 
 Año 2023, 1er Cuatrimestre
 
