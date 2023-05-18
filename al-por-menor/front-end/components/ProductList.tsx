@@ -3,11 +3,11 @@ import { Product } from './Product'
 import '../app/(productos)/product-list/ProductsStyles.css'
 
 
-export const ProductList = () => {
+export function ProductList() {
 
-    let products = [{
+  let products = [
+    {
         id: 1,
-        url: "URL producto 1",
         nombre: "Producto 1",
         descripción: "Descripción del producto 1",
         unidad_de_medicion: "kg",
@@ -138,7 +138,7 @@ export const ProductList = () => {
           {
             products.map((product, index) => {
               return (
-                <Product key={index} product={product}/>
+                <Product key={index} id={product.id} nombre={product.nombre} precio={product.precio}/>
               )
             })
           }
