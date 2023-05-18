@@ -1,16 +1,18 @@
+import { Frecuency } from "@/enum/enums";
+
 export interface IGetProductsResponse {
     products: IProduct[];
 }
 
 export interface IProduct {
     productId: string;
-    name: string;
-    description: string;
-    category: string;
-    price: number;
-    brand: string;
-    imgUrl: string;
-    unitOfMeasure: string;
+    name?: string;
+    description?: string;
+    category?: string;
+    price?: number;
+    brand?: string;
+    imgUrl?: string;
+    unitOfMeasure?: string;
 }
 
 export interface IGetSubscriptionsResponse {
@@ -19,9 +21,9 @@ export interface IGetSubscriptionsResponse {
 
 export interface ISubscription {
     subscriptionId: string;
-    productName: string;
-    frecuency: string;
-    quantity: number;
-    price: number;
-    imgUrl: string;
+    productName?: string;
+    frecuency?: Frecuency;
+    quantity?: number;
+    price?: number;
+    imgUrl?: string;
 }
