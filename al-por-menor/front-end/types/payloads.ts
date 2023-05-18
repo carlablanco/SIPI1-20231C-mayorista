@@ -1,4 +1,4 @@
-import { Frecuency } from "@/enum/enums";
+import { Frecuency } from "@/enums/enums";
 
 export interface ILoginPayload {
     email: string;
