@@ -1,5 +1,6 @@
 import React from 'react'
 import '../app/(productos)/product-list/ProductsStyles.css'
+import Link from 'next/link'
 
 interface ProductProps  {
   id: number
@@ -20,7 +21,7 @@ export const Product = ({nombre , precio, id}: ProductProps) => {
           <h3 className="mt-4 text-sm text-gray-700">{nombre}</h3>
           <p className="mt-1 text-lg font-medium text-gray-900">${precio}</p>
         </div>
-        <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Subscribirme</button>
+        <Link href="/subscripcion-info/" className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Subscribirme</Link>
     </div>
   )
 }
