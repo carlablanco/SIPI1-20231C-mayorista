@@ -1,0 +1,126 @@
+.sub-container {
+    width: 100vw;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 100vh;
+}
+
+.sub {
+    margin-top: 8em;
+    margin-bottom: 5em;
+    padding-bottom: 5em;
+}
+
+#cantidad-personas {
+    border: 1px solid rgb(97, 97, 97);
+    padding: .5em 1.5em;
+    border-radius: 5px;
+}
+
+.btn-sub {
+    background-color: #0070F4;
+}
+
+.btn-sub:hover {
+    background-color: #0052D4;
+}
+
+.options-container{
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+}
+
+.options-container label {
+    width: fit-content;
+    padding: .5em 2em;
+}
+
+.radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    padding: 0rem;
+    width: fit-content;
+    font-size: 16px;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(97, 97, 97);
+    border-radius: 5px;
+    padding: .5em 2.5em;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    border: 2px solid #0070F4;
+  }
+  ----
+
+  .radio-inputs-1 {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #EEE;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.5rem;
+    width: fit-content;
+    font-size: 14px;
+  }
+  
+  .radio-inputs-1 .radio-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(97, 97, 97);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+  }
+  
+  .radio-inputs-1 .radio-1 input {
+    display: none;
+  }
+  
+  .radio-inputs-1 .radio-1 .name-1 {
+    pointer-events: none;
+    border-radius: 5px;
+  }
+  
+  .radio-inputs-1 .radio-1 input:checked + .name-1 {
+    border: 2px solid #0070F4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .options-container-1 {
+    margin: -0.25rem;
+    margin-right: 400px;
+  }
+  
+  
