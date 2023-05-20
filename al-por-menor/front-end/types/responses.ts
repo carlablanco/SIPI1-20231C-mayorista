@@ -13,6 +13,7 @@ export interface IProduct {
     brand?: string;
     imgUrl?: string;
     unitOfMeasure?: string;
+    provider?: string;
 }
 
 export interface IGetSubscriptionsResponse {
