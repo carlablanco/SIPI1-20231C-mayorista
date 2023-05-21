@@ -1,75 +1,31 @@
 'use strict';
-
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
 
-  const user = sequelize.define('User', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isAlpha: {
-          msg: "El nombre sólo puede contener letras."
-        },
-        len: {
-          args: [2, 255],
-          msg: "El nombre debe contener al menos dos caracteres."
-        }
-      }
-    },
-    surname: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isAlpha: {
-          msg: "El apellido sólo puede contener letras."
-        },
-        len: {
-          args: [2, 255],
-          msg: "El apellido debe contener al menos dos caracteres."
-        }
-      }
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: {
-          msg: "El email tiene que ser un correo válido."
-        }
-      }
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: {
-          args: [6, 255],
-          msg: "La contraseña debe tener al menos 6 caracteres."
-        }
-      }
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isAlpha: {
-          msg: "Tipo de usuario inválido."
-        }
-      }
-    },
-    resetLink: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      }
-    },
-   {
-    tableName: "users"
+    }
+  }
+  User.init({
+    name: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: DataTypes.STRING,
+    address: DataTypes.STRING,
+    city: DataTypes.STRING,
+    password: DataTypes.STRING,
+    supplier: DataTypes.BOOLEAN,
+    otpCode: DataTypes.INTEGER,
+    otpExpiration: DataTypes.DATE
+  }, {
+    sequelize,
+    modelName: 'User',
   });
-
-  user.associate = function (models) {
-    // associations can be defined here
-  };
-
-  return user;
+  return User;
 };

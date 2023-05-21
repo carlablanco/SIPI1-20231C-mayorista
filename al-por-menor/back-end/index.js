@@ -1,9 +1,9 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
-const port = 4000
+const port = process.env.HTTP_PORT
 const { sequelize } = require('./models/index');
 const cors = require('cors')
-require('dotenv').config();
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
