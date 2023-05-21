@@ -82,7 +82,7 @@ export default function Testimonials() {
                 <blockquote className="text-xl font-medium mb-4">
                   “Gracias a Al Por Menor ahora llego a fin de mes y me puedo ir a Mar del Plata en el verano!“
                 </blockquote>
-                <cite className="block font-bold text-lg not-italic mb-1">Julieta Diaz</cite>
+                <cite className="block font-bold text-lg not-italic mb-1">Daniela Gomez</cite>
                 <div className="text-gray-600">
                   <span>Vecina de Villa Crespo</span>
                 </div>

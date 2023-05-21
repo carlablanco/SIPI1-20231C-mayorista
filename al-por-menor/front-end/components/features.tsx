@@ -34,8 +34,8 @@ export default function Features() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="h2 mb-4">¿Qué es al Por Menor?</h1>
-            <p className="text-xl text-gray-600">Al Por Menor es un sitio que agrupa las compras de los usuarios en una compra mayorista, para que vos puedas
-            acceder al mejor precio siempre, por las unidades que vos quieras y recibirlo desde la comodidad de tu casa.</p>
+            <p className="text-xl text-gray-600">Agrupamos las compras de los usuarios en una compra mayorista para que vos puedas
+            acceder al mejor precio siempre, por las unidades que vos quieras para recibirlos donde quieras.</p>
           </div>
 
           {/* Section content */}
@@ -45,7 +45,7 @@ export default function Features() {
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <h3 className="h3 mb-3">Descubrí nuestro sistema de suscripciones</h3>
-                <p className="text-xl text-gray-600">Suscribite a planes de compra quincenal, mensual y bimestral y despreocupate por las compras: nosotros
+                <p className="text-xl text-gray-600">Suscribite a planes de compra mensual, semestral o anual y despreocupate por las compras: nosotros
                 compramos y ahorramos por vos.</p>
               </div>
               {/* Tabs buttons */}

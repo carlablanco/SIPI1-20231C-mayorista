@@ -26,3 +26,14 @@
 .form-switch input[type="checkbox"]:checked+label>span:first-child {
     left: 34px;
 }
+
+.highlight {
+    background-color: #eaf2fe; /* Color de fondo azul claro */
+    display: inline-block;
+    padding: 4px;
+  }
+  
+  .discount {
+    color: #0d47a1; /* Color de texto azul */
+    font-weight: bold;
+  }

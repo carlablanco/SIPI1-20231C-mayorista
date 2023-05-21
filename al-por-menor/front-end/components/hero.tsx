@@ -29,7 +29,9 @@ export default function Hero() {
 
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16 headerhero">
-            <Image src={MainImage} alt="Main 01" />
+            <div style={{ width: '65%' }}> {/* Adjust the width percentage as needed */}
+              <Image src={MainImage} alt="Main 01" layout="responsive" />
+            </div>
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">al <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Por Menor</span></h1>
             <div className="max-w-3xl mx-auto">
               <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">Precios mayoristas a tu alcance, sin comprar de más. Suscribite a nuestros planes de compra mensuales y recibilos desde la comodidad de tu casa, al mejor precio.</p>

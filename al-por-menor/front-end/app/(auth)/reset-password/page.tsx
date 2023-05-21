@@ -11,7 +11,7 @@ export default function ResetPassword() {
 
           {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h1 className="h1 mb-4">Falta poco para que sigas ahorrando</h1>
+            <h1 className="h1 mb-4">Hay que seguir ahorrando:</h1>
             <p className="text-xl text-gray-600">Ingresá el mail con el que te registraste y te enviamos un correo para recuperar tu cuenta.</p>
           </div>
 
