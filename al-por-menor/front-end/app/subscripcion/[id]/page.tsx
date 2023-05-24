@@ -3,12 +3,14 @@ import Sub from '@/components/sub'
 import Footer from '@/components/ui/footer'
 
 
-export default function Subscripcion() {
+export default function Subscripcion({params}: any) {
+
+    const product = params.id
   
     const producto =
       {
-        id: 1,
-        nombre: "Producto 1",
+        id: {product},
+        nombre: `Producto ${product}`,
         img: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
         descripción: "Descripción del producto",
         unidad_de_medicion: "kg",
@@ -21,7 +23,7 @@ export default function Subscripcion() {
 
   return (
     <div>
-        <Sub id={producto.id} img={producto.img} nombre={producto.nombre} precio={producto.precio} descripcion={producto.descripción}/>
+        <Sub id={producto.id} product={producto}/>
         <Footer/>
     </div>
   )

@@ -1,15 +1,8 @@
 import React from 'react'
-import '../app/(subscripcion)/[subscripcion-info]/styles.css'
+import '../app/subscripcion/[id]/styles.css'
 
-interface ProductProps  {
-    id: number
-    nombre: string
-    precio: number
-    descripcion: string
-    img: string
-}
 
-export default function Sub({nombre, precio, descripcion, img}: ProductProps) {
+export default function Sub({product}: any) {
   return (
         <div className='sub-container'>
             <div className='sub'>
@@ -17,17 +10,17 @@ export default function Sub({nombre, precio, descripcion, img}: ProductProps) {
                     <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                     <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
                         <div className="aspect-h-3 aspect-w-2 overflow-hidden rounded-lg bg-gray-100 sm:col-span-4 lg:col-span-5">
-                        <img src={img} alt="Two each of gray, white, and black shirts arranged on table." className="object-cover object-center"/>
+                        <img src={product.img} alt="Two each of gray, white, and black shirts arranged on table." className="object-cover object-center"/>
                         </div>
                         <div className="sm:col-span-8 lg:col-span-7">
-                        <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{nombre}</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.nombre}</h2>
                 
                         <section aria-labelledby="information-heading" className="mt-2">
                             <h3 id="information-heading" className="sr-only">Product information</h3>
                 
-                            <p className="text-2xl text-gray-900">${precio}</p>
+                            <p className="text-2xl text-gray-900">${product.precio}</p>
 
-                            <p className="text-1xl text-gray-900">{descripcion}</p>
+                            <p className="text-1xl text-gray-900">{product.descripcion}</p>
                 
                 
                             <div className="mt-6">
