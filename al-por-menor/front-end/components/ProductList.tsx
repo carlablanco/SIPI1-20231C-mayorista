@@ -5,6 +5,8 @@ import '../app/(productos)/product-list/ProductsStyles.css'
 
 export function ProductList() {
 
+  console.log('test change');
+
   let products = [
     {
         id: 1,
