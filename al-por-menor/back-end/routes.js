@@ -2,13 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 // Controllers
-const AuthController = require('./controllers/AuthController');
+const UserController = require("./controllers/user.controller")
 
-// Home
-router.get('/', (req, res) => res.json({ hello: "World" }));
-
-// // Dos rutas: login y registro
-// router.post('/api/login', AuthController.signIn);
-// router.post('/api/register', AuthController.signUp);
+router.post('/login', UserController.userLogIn);
+router.post('/register', UserController.userRegister);
 
 module.exports = router;
