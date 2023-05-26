@@ -44,9 +44,6 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [6, 30], // Minimo 6, maximo 30 caracteres
-        },
       },
       supplier: {
         type: DataTypes.BOOLEAN,
@@ -54,11 +51,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       otpCode: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       otpExpiration: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
