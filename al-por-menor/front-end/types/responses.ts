@@ -65,9 +65,9 @@ export interface IGetSubscriptionsResponse {
 export interface ISubscription {
     subscriptionId: string;
     userId: string;
-    productName?: string;
-    cadence?: Cadence;
-    numberOfPeople?: number;
-    price?: number;
-    imgUrl?: string;
+    productName: string;
+    cadence: Cadence;
+    numberOfPeople: number;
+    price: number;
+    imgUrl: string;
 }
