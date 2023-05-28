@@ -1,4 +1,4 @@
-const { Subscription, SubscriptionUser, Product, SubscriptionProduct } = require('./models'); // Import the Sequelize models
+const { Subscription, SubscriptionUser, Product, SubscriptionProduct } = require('../models'); // Import the Sequelize models
 
 // Get subscription and associated products for a certain user
 async function getSubscriptionForUser(userId) {
