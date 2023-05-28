@@ -16,3 +16,16 @@
     }
 }
 
+
+.user-menu-list {
+    top: 3em;
+    text-align: center;
+    gap: .5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-menu-list a:hover {
+    background-color: #f3f3f3;
+}
+
