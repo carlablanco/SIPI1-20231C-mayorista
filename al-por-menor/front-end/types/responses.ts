@@ -21,7 +21,7 @@ export interface IGetProductsResponse {
   * @field {price} price of the product
   * @field {brand} brand of the product
   * @field {imgUrl} image url of the product
-  * @field {measureUnit} unit of measure of the product
+  * @field {measurementUnit } unit of measure of the product
   * @field {supplier} supplier of the product
   * @field {productList} list of products, apply only to product packs
   * 
@@ -34,7 +34,7 @@ export interface IProduct {
     price?: number;
     brand?: string;
     imgUrl?: string;
-    measureUnit?: string;
+    measurementUnit ?: string;
     supplier?: string;
     productList: IProduct[];
 }
