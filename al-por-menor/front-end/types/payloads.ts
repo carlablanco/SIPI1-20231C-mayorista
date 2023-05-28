@@ -118,7 +118,7 @@ export interface IUpdateSubscriptionPayload {
  * @field {price} price of the product
  * @field {brand} brand of the product
  * @field {imgUrl} image url of the product
- * @field {unitOfMeasure} unit of measure of the product
+ * @field {measureUnit} unit of measure of the product
  * @field {productList} list of products, apply only to prodcut packs
  */
 export interface IModifyProductPayload {
@@ -129,6 +129,6 @@ export interface IModifyProductPayload {
     price?: number;
     brand?: string;
     imgUrl?: string;
-    unitOfMeasure?: string;
+    measureUnit?: string;
     productList?: Array<IProduct>;
 }
