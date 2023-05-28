@@ -6,10 +6,13 @@ import Link from 'next/link'
 import Logo from './logo'
 import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
+import UserMenu from '../userMenu'
 
 export default function Header() {
 
   const [top, setTop] = useState<boolean>(true)
+
+  const [loggedIn, setLoggedIn] = useState<boolean>(false)
 
   // detect whether user has scrolled the page down by 10px
   const scrollHandler = () => {
@@ -35,6 +38,8 @@ export default function Header() {
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow">
             {/* Desktop sign in links */}
+            {       
+            loggedIn ?     
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
                 <Link href="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Iniciar Sesión</Link>
@@ -47,7 +52,9 @@ export default function Header() {
                   </svg>
                 </Link>
               </li>
-            </ul>
+            </ul> : 
+            <UserMenu />
+            }     
 
           </nav>
 
