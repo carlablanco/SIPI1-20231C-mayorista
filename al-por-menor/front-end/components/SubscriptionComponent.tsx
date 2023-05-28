@@ -1,20 +1,20 @@
-import { Frequency } from "@/enums/enums";
+import { Cadence } from "@/enums/enums";
 import { ISubscription } from "@/types/responses";
 
 // Subscription component
 interface SubscriptionProps {
     subscription: ISubscription;
-    updateFrequency: (subscriptionId: string, frequency: Frequency) => void;
+    updateCadence: (subscriptionId: string, cadebce: Cadence) => void;
     updateQuantity: (subscriptionId: string, quantity: number) => void;
   }
   
   const SubscriptionComponent: React.FC<SubscriptionProps> = ({
     subscription,
-    updateFrequency,
+    updateCadence,
     updateQuantity,
   }) => {
-    const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-      updateFrequency(subscription.subscriptionId, e.target.value as Frequency);
+    const handleCadenceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      updateCadence(subscription.subscriptionId, e.target.value as Cadence);
     };
   
     const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,16 +23,15 @@ interface SubscriptionProps {
     };
   
     return (
-      <div>
+      <div className="">
         <img src={subscription.imgUrl} alt={subscription.productName} />
         <p>Pack: {subscription.productName}</p>
         <p>Frecuencia:</p>
-        <select value={subscription.frequency} onChange={handleFrequencyChange}>
-          <option value="Monthly">Mensual</option>
-          <option value="Weekly">Semanal</option>
-          <option value="Bimonthly">Bi-mensual</option>
-          <option value="Quarterly">Tri-mestral</option>
-          <option value="Annual">Anual</option>
+        <select value={subscription.cadence} onChange={handleCadenceChange}>
+          <option value="WEEKLY">Semanal</option>
+          <option value="BIWEEKLY">2 veces x semana</option>
+          <option value="BIMONTHLY">Quincenal</option>
+          <option value="MONTHLY">Mensual</option>
         </select>
         <p>Cantidad: </p>
         <input

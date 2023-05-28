@@ -1,5 +1,5 @@
 "use client";
-import { Frequency } from "@/enums/enums";
+import { Cadence } from "@/enums/enums";
 import { ISubscription } from "@/types/responses";
 import React, { useState } from "react";
 import SubscriptionComponent from "./SubscriptionComponent";
@@ -8,6 +8,13 @@ import SubscriptionComponent from "./SubscriptionComponent";
 interface User {
   id: number;
   name: string;
+  lastName: string;
+  address: string;
+  city: string;
+  password: string;
+  supplier: boolean;
+  otpCode: number;
+  otpExpiration: Date;
   email: string;
   subscriptions: ISubscription[];
 }
@@ -18,33 +25,36 @@ const ProfilePage: React.FC = () => {
   const [user, setUser] = useState<User>({
     id: 1,
     name: "John Doe",
+    lastName: "",
     email: "johndoe@example.com",
+    address: "",
+    city: "",
+    password: "",
+    supplier: false,
+    otpCode: 0,
+    otpExpiration: new Date(),
     subscriptions: [
       {
+        userId: "1",
         subscriptionId: "1",
-        imgUrl: "subscription_image1.jpg",
-        productName: "Pack 1",
-        frequency: Frequency.MONTHLY,
-        quantity: 2,
-        price: 10,
+        cadence: Cadence.MONTHLY,
+        numberOfPeople: 1,
       },
       {
+        userId: "1",
         subscriptionId: "2",
-        imgUrl: "subscription_image2.jpg",
-        productName: "Pack 2",
-        frequency: Frequency.WEEKLY,
-        quantity: 1,
-        price: 5,
+        cadence: Cadence.WEEKLY,
+        numberOfPeople: 1,
       },
     ],
   });
 
-  // Update subscription frequency
-  const updateFrequency = (subscriptionId: string, frequency: Frequency) => {
+  // Update subscription cadence
+  const updateCadence = (subscriptionId: string, cadence: Cadence) => {
     setUser((prevUser) => {
       const updatedSubscriptions = prevUser.subscriptions.map((subscription) =>
         subscription.subscriptionId === subscriptionId
-          ? { ...subscription, frequency }
+          ? { ...subscription, cadence }
           : subscription
       );
       return { ...prevUser, subscriptions: updatedSubscriptions };
@@ -72,14 +82,16 @@ const ProfilePage: React.FC = () => {
 
 
       <h2 className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-4xl">Subscripciones activas:</h2>
+      <div className="flex justify-around columns-3 container flex-wrap mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-1xl">
       {user.subscriptions.map((subscription) => (
         <SubscriptionComponent
           key={subscription.subscriptionId}
           subscription={subscription}
-          updateFrequency={updateFrequency}
+          updateCadence={updateCadence}
           updateQuantity={updateQuantity}
         />
       ))}
+      </div>
     </div>
   );
 };

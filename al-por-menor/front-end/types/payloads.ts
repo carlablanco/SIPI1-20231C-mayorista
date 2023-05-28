@@ -1,4 +1,4 @@
-import { Frequency } from "@/enums/enums";
+import { Cadence } from "@/enums/enums";
 import { IProduct } from "./responses";
 
 /**
@@ -80,13 +80,13 @@ export interface IDeleteSubscriptionPayload {
   * @interface ISubscribePayload
   * @field {userId} id of the user
   * @field {productId} id of the product
-  * @field {frecuency} frecuency of the subscription
+  * @field {cadence} cadence of the subscription
   * @field {quantity} quantity of people for the subscription
   */
 export interface ISubscribePayload {
     userId: string;
     productId: string;
-    frecuency?: Frequency; 
+    cadence?: Cadence; 
     quantity?: number;
 }
 
@@ -97,13 +97,13 @@ export interface ISubscribePayload {
   * @interface IUpdateSuscriptionPayload
   * @field {userId} id of the user
   * @field {subscriptionId} id of the subscription
-  * @field {frecuency} frecuency of the subscription
+  * @field {cadence} cadence of the subscription
   * @field {quantity} quantity of people for the subscription
   */
 export interface IUpdateSubscriptionPayload {
     userId: string;
     subscriptionId: string;
-    frecuency?: Frequency;
+    cadence?: Cadence;
     quantity?: number;
 }
 
@@ -118,7 +118,7 @@ export interface IUpdateSubscriptionPayload {
  * @field {price} price of the product
  * @field {brand} brand of the product
  * @field {imgUrl} image url of the product
- * @field {unitOfMeasure} unit of measure of the product
+ * @field {measureUnit} unit of measure of the product
  * @field {productList} list of products, apply only to prodcut packs
  */
 export interface IModifyProductPayload {
@@ -129,6 +129,6 @@ export interface IModifyProductPayload {
     price?: number;
     brand?: string;
     imgUrl?: string;
-    unitOfMeasure?: string;
+    measureUnit?: string;
     productList?: Array<IProduct>;
 }
