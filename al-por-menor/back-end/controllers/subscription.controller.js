@@ -2,7 +2,7 @@
 const subscriptionService = require('../services/subscription.service');
 
 async function getUserSubscriptionWithProducts(req, res, next) {
-  const { userId } = req.body;
+  const { userId } = req.params;
 
   try {
     const userSubscriptions = await subscriptionService.getSubscriptionForUser(userId);
