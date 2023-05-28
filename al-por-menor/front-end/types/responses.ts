@@ -1,4 +1,4 @@
-import { Frecuency } from "@/enums/enums";
+import { Frequency } from "@/enums/enums";
 
  /**
   * Response of the getProducts request
@@ -64,7 +64,7 @@ export interface IGetSubscriptionsResponse {
 export interface ISubscription {
     subscriptionId: string;
     productName?: string;
-    frecuency?: Frecuency;
+    frequency?: Frequency;
     quantity?: number;
     price?: number;
     imgUrl?: string;
