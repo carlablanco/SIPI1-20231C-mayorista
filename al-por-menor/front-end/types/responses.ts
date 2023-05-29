@@ -1,14 +1,27 @@
 import { Cadence } from "@/enums/enums";
 
+
+
+interface IResponse{
+    status: number;
+    message: string;
+}
+
  /**
   * Response of the getProducts request
   *
   * @interface IGetProductsResponse
   * @field {products} list of products
   */
-export interface IGetProductsResponse {
-    products: IProduct[];
+export interface IGetProductsResponse extends IResponse {
+    response: {
+      products: IProduct[]
+    };
 }
+
+
+
+//TO-DO Mover esto a otro lado, en realidad no son responses
 
  /**
   * Product Interface

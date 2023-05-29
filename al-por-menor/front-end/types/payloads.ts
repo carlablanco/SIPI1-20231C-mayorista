@@ -1,17 +1,34 @@
 import { Cadence } from "@/enums/enums";
 import { IProduct } from "./responses";
 
-/**
- * Payload for the login request
- *
- * @interface ILoginPayload
- * @field {email} email of the user
- * @field {password} password of the user
- */
-export interface ILoginPayload {
+interface IPayload {
+    body: any;
+    urlParams: any;
+}
+
+interface ILoginPayloadBody {
     email: string;
     password: string;
 }
+
+/**
+ * Payload for the login request
+ *
+ * @class LoginPayload
+ * @field {email} email of the user
+ * @field {password} password of the user
+ */
+export class LoginPayload implements IPayload {
+    body: ILoginPayloadBody = { email: "", password: ""};
+    urlParams = null;
+    constructor(body: ILoginPayloadBody) {
+        body = body;
+    }
+}
+
+
+
+//TO-DO cambiar estas interfaces a clases que usen el IPayload
 
 /**
  * Payload for the register request
