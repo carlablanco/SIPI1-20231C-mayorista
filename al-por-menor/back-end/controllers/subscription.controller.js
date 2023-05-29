@@ -23,7 +23,34 @@ async function getAllSubscriptionsWithProducts(req, res, next) {
   }
 }
 
+async function cancelUserSubscription(req, res, next) {
+  const { userId, subscriptionId } = req.params;
+
+  try {
+    await subscriptionService.cancelUserSubscription(userId, subscriptionId);
+    res.json({ message: 'Subscription canceled successfully.' });
+  } catch (error) {
+    console.error('Error canceling user subscription:', error);
+    next(error);
+  }
+}
+
+async function modifyUserSubscription(req, res, next) {
+  const { userId, subscriptionId } = req.params;
+  const { cadence, numberOfPeople } = req.body;
+
+  try {
+    await subscriptionService.modifyUserSubscription(userId, subscriptionId, cadence, numberOfPeople);
+    res.json({ message: 'Subscription modified successfully.' });
+  } catch (error) {
+    console.error('Error modifying user subscription:', error);
+    next(error);
+  }
+}
+
 module.exports = {
   getUserSubscriptionWithProducts,
   getAllSubscriptionsWithProducts,
+  cancelUserSubscription,
+  modifyUserSubscription,
 };
