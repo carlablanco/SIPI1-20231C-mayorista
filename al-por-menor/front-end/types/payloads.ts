@@ -1,134 +1,146 @@
 import { Cadence } from "@/enums/enums";
-import { IProduct } from "./responses";
 
 /**
  * Payload for the login request
  *
- * @interface ILoginPayload
- * @field {email} email of the user
- * @field {password} password of the user
+ * @interface LoginPayload
+ * @property {string} email - Email of the user
+ * @property {string} password - Password of the user
  */
-export interface ILoginPayload {
+export interface LoginPayload {
     email: string;
     password: string;
-}
-
-/**
- * Payload for the register request
- *
- * @interface IRegisterPayload
- * @field {email} email of the user
- * @field {password} password of the user
- * @field {name} name of the user
- * @field {lastName} last name of the user
- * @field {address} address of the user
- * @field {city} city of the user
- */
-
-export interface IRegisterPayload {
+  }
+  
+  /**
+   * Payload for the register request
+   *
+   * @interface RegisterPayload
+   * @property {string} email - Email of the user
+   * @property {string} password - Password of the user
+   * @property {string} name - Name of the user
+   * @property {string} lastName - Last name of the user
+   * @property {string} address - Address of the user
+   * @property {string} city - City of the user
+   */
+  export interface RegisterPayload {
     email: string;
     password: string;
     name: string;
     lastName: string;
     address: string;
     city: string;
-}
-
-/**
- * Payload for the getProducts request
- *
- * @interface IGetProductsPayload
- * @field {name} user friendly name of the product
- * @field {category} category of the product
- * @field {price} price of the product
- * @field {brand} brand of the product
- * @field {showHiddenProducts} show hidden products flag to hide/show products that you are already subscribed to
- */
-export interface IGetProductsPayload {
-    name?: string;
-    category?: string;
-    price?: number;
-    brand?: string;
+  }
+  
+  /**
+   * Payload for the change password request
+   *
+   * @interface ChangePasswordPayload
+   * @property {string} oldPassword - Old password of the user
+   * @property {string} newPassword - New password of the user
+   */
+  export interface ChangePasswordPayload {
+    oldPassword: string;
+    newPassword: string;
+  }
+  
+  /**
+   * Payload for creating a user subscription
+   *
+   * @interface UserSubscriptionPayload
+   * @property {string} [subscriptionId] - ID of the subscription (optional if it's a new subscription)
+   * @property {string} cadence - Cadence of the subscription
+   * @property {number} numberOfPeople - Number of people for the subscription
+   */
+  export interface UserSubscriptionPayload {
+    subscriptionId?: string;
+    cadence: Cadence;
+    numberOfPeople: number;
+  }
+  
+  /**
+   * Payload for getting products
+   *
+   * @interface GetProductsPayload
+   * @property {string} name - Name of the product
+   * @property {string} brand - Brand of the product
+   * @property {string} category - Category of the product
+   * @property {string} price - Price of the product
+   * @property {boolean} [showHiddenProducts] - Whether to show hidden products (default: false)
+   */
+  export interface GetProductsPayload {
+    name: string;
+    brand: string;
+    category: string;
+    price: string;
     showHiddenProducts?: boolean;
-}
-
- /**
-  * Payload for the getSuscriptions request
-  *
-  * @interface IGetSuscriptionsPayload
-  * @field {userId} id of the user
-  * @field {subscriptionIds} ids of the subscriptions
-  */
-export interface IGetSubscriptionsPayload {
-    userId: string;
-    subscriptionIds?: Array<string>;
-}
-
- /**
-  * Payload for the deleteSuscription request
-  *
-  * @interface IDeleteSuscriptionPayload
-  * @field {subscriptionId} id of the subscription
-  */
-export interface IDeleteSubscriptionPayload {
-    subscriptionId: string;
-}
-
- /**
-  * Payload for the subscribe request
-  *
-  * @interface ISubscribePayload
-  * @field {userId} id of the user
-  * @field {productId} id of the product
-  * @field {cadence} cadence of the subscription
-  * @field {quantity} quantity of people for the subscription
-  */
-export interface ISubscribePayload {
-    userId: string;
+  }
+  
+  /**
+   * Payload for creating a product
+   *
+   * @interface CreateProductPayload
+   * @property {string} name - Name of the product
+   * @property {string} description - Description of the product
+   * @property {string} measurementUnit - Measurement unit of the product
+   * @property {string} brand - Brand of the product
+   * @property {string} category - Category of the product
+   * @property {number} price - Price of the product
+   * @property {string} image - Image of the product (replace with appropriate type, e.g., string or File)
+   */
+  export interface CreateProductPayload {
+    name: string;
+    description: string;
+    measurementUnit: string;
+    brand: string;
+    category: string;
+    price: number;
+    image: string; // Replace with the appropriate type for the image (e.g., string or File)
+  }
+  
+  /**
+   * Payload for updating a product
+   *
+   * @interface UpdateProductPayload
+   * @property {string} name - Name of the product
+   * @property {string} description - Description of the product
+   * @property {string} measurementUnit - Measurement unit of the product
+   * @property {string} brand - Brand of the product
+   * @property {string} category - Category of the product
+   * @property {number} price - Price of the product
+   * @property {string} image - Image of the product (replace with appropriate type, e.g., string or File)
+   */
+  export interface UpdateProductPayload {
+    name: string;
+    description: string;
+    measurementUnit: string;
+    brand: string;
+    category: string;
+    price: number;
+    image: string; // Replace with the appropriate type for the image (e.g., string or File)
+  }
+  
+  /**
+   * Payload for adding a product to a subscription
+   *
+   * @interface AddProductToSubscriptionPayload
+   * @property {string} productId - ID of the product
+   * @property {number} quantity - Quantity of the product
+   */
+  export interface AddProductToSubscriptionPayload {
     productId: string;
-    cadence?: Cadence; 
-    quantity?: number;
-}
-
-
- /**
-  * Payload for the updateSuscription request
-  *
-  * @interface IUpdateSuscriptionPayload
-  * @field {userId} id of the user
-  * @field {subscriptionId} id of the subscription
-  * @field {cadence} cadence of the subscription
-  * @field {quantity} quantity of people for the subscription
-  */
-export interface IUpdateSubscriptionPayload {
-    userId: string;
-    subscriptionId: string;
-    cadence?: Cadence;
-    quantity?: number;
-}
-
- /**
- * Payload for the modifyProduct request
- *
- * @interface IModifyProductPayload
- * @field {productId} id of the product
- * @field {name} user friendly name of the product
- * @field {description} description of the product
- * @field {category} category of the product
- * @field {price} price of the product
- * @field {brand} brand of the product
- * @field {imgUrl} image url of the product
- * @field {measurementUnit } unit of measure of the product
- * @field {productList} list of products, apply only to prodcut packs
- */
-export interface IModifyProductPayload {
-    productId: string;
-    name?: string;
-    description?: string;
-    category?: string;
-    price?: number;
-    brand?: string;
-    imgUrl?: string;
-    measurementUnit ?: string;
-    productList?: Array<IProduct>;
-}
+    quantity: number;
+  }
+  
+  /**
+   * Payload for updating a subscription
+   *
+   * @interface UpdateSubscriptionPayload
+   * @property {string} cadence - Cadence of the subscription
+   * @property {number} numberOfPeople - Number of people for the subscription
+   */
+  export interface UpdateSubscriptionPayload {
+    cadence: Cadence;
+    numberOfPeople: number;
+  }
+  
