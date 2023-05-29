@@ -29,6 +29,30 @@ async function getSubscriptionForAnyUser() {
   }
 }
 
+async function subscribeUser(userId, subscriptionId, cadence, numberOfPeople) {
+  try {
+    const existingSubscription = await SubscriptionUser.findOne({
+      where: { userId, subscriptionId },
+    });
+
+    if (existingSubscription) {
+      throw new Error('User is already subscribed to this subscription.');
+    }
+
+    const subscriptionUser = await SubscriptionUser.create({
+      userId,
+      subscriptionId,
+      cadence,
+      numberOfPeople,
+    });
+
+    return subscriptionUser;
+  } catch (error) {
+    console.error('Error subscribing to a subscription:', error);
+    throw error;
+  }
+}
+
 async function cancelUserSubscription(userId, subscriptionId) {
   try {
     await SubscriptionUser.destroy({
@@ -59,6 +83,7 @@ async function modifyUserSubscription(userId, subscriptionId, cadence, numberOfP
 module.exports = {
   getSubscriptionForUser,
   getSubscriptionForAnyUser,
+  subscribeUser,
   cancelUserSubscription,
   modifyUserSubscription,
 };
