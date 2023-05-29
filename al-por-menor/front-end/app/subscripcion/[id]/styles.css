@@ -20,6 +20,7 @@
 }
 
 .btn-sub {
+    margin-top: 20px;
     background-color: #0070F4;
 }
 
@@ -123,4 +124,28 @@
     margin-right: 400px;
   }
   
+  .btn-MP {
+    height: 100px;
+    margin-top: 10px;
+    margin-left: -8px;
+    padding: 0.1em ;
+    border: transparent;
+    width: 40%;
+    background-image: url('https://calim.com.ar/wp-content/uploads/2020/01/mercado-libre-mercado-pago-percepciones.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
+   
+   .btn-MP :hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(30,144,255,1) 0%, rgba(0,212,255,1) 100%);
+   }
+   
+   .btn-MP :active {
+    transform: translate(0em, 0.2em);
+   }
+  
+ 
+  
+
   

@@ -1,9 +1,12 @@
 import React from 'react'
 import '../app/subscripcion/[id]/styles.css'
+import Pay from './Pay'
+import mercadoPagoLogo from "ruta-de-la-imagen.png";
 
 
 export default function Sub({product}: any) {
-  return (
+  
+    return (
         <div className='sub-container'>
             <div className='sub'>
                 <div className="flex w-full transform text-left text-base transition ">
@@ -116,8 +119,12 @@ export default function Sub({product}: any) {
                         </div>
                     </div>
 
+                   
+                    <Pay/>
+
                 
-                            <button className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Subscribirme</button>
+                            <button className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none">Subscribirme</button>
+
                             </form>
                         </section>
                         </div>
