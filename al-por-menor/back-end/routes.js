@@ -11,4 +11,7 @@ router.post('/register', UserController.userRegister);
 router.get('/user/:userId/subscriptions', SubscriptionController.getUserSubscriptionWithProducts);
 router.get('/subscriptions', SubscriptionController.getAllSubscriptionsWithProducts);
 
+router.patch('/user/:userId/subscriptions/:subscriptionId', SubscriptionController.modifyUserSubscription);
+router.delete('/user/:userId/subscriptions/:subscriptionId', SubscriptionController.cancelUserSubscription);
+
 module.exports = router;
