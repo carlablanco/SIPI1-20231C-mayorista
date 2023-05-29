@@ -2,7 +2,7 @@
 import { Cadence } from "@/enums/enums";
 import { ISubscription } from "@/types/responses";
 import React, { useState } from "react";
-import SubscriptionComponent from "./SubscriptionComponent";
+import SubscriptionComponent from "./UserSubscription";
 
 // Interface for user
 interface User {
@@ -39,36 +39,40 @@ const ProfilePage: React.FC = () => {
         subscriptionId: "1",
         cadence: Cadence.MONTHLY,
         numberOfPeople: 1,
-        productName: "Pack 1",
+        name: "Pack 1",
         price: 100,
         imgUrl: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+        productList: [],
       },
       {
         userId: "1",
         subscriptionId: "2",
         cadence: Cadence.WEEKLY,
         numberOfPeople: 4,
-        productName: "Pack 2",
+        name: "Pack 2",
         price: 200,
         imgUrl: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+        productList: [],
       },
       {
         userId: "1",
         subscriptionId: "3",
         cadence: Cadence.BIWEEKLY,
         numberOfPeople: 2,
-        productName: "Pack 3",
+        name: "Pack 3",
         price: 300,
         imgUrl: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+        productList: [],
       },
       {
         userId: "1",
         subscriptionId: "4",
         cadence: Cadence.BIMONTHLY,
         numberOfPeople: 3,
-        productName: "Pack 4",
+        name: "Pack 4",
         price: 400,
         imgUrl: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+        productList: [],
       }
     ],
   });

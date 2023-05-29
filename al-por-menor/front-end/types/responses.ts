@@ -55,7 +55,7 @@ export interface IGetSubscriptionsResponse {
   * @interface ISubscription
   * @field {subscriptionId} id of the subscription
   * @field {userId} id of the user subscribed
-  * @field {productName} name of the product
+  * @field {name} name of the susbcription
   * @field {cadence} cadence of the subscription
   * @field {numberOfPeople} number of people for the subscription
   * @field {price} price of the subscription
@@ -64,10 +64,11 @@ export interface IGetSubscriptionsResponse {
 
 export interface ISubscription {
     subscriptionId: string;
-    userId: string;
-    productName: string;
+    userId?: string;
+    name: string;
     cadence: Cadence;
     numberOfPeople: number;
     price: number;
     imgUrl: string;
+    productList: IProduct[];
 }

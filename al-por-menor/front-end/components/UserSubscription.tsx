@@ -33,9 +33,9 @@ const SubscriptionComponent: React.FC<SubscriptionProps> = ({
   return (
     <div className="">
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-        <img className="h-full w-full object-cover object-center group-hover:opacity-75" src={subscription.imgUrl} alt={subscription.productName} />
+        <img className="h-full w-full object-cover object-center group-hover:opacity-75" src={subscription.imgUrl} alt={subscription.name} />
       </div>
-      <p>Pack: {subscription.productName}</p>
+      <p>Pack: {subscription.name}</p>
       <p>Frecuencia:</p>
       <select value={subscription.cadence} onChange={handleCadenceChange}>
         <option value="WEEKLY">Semanal</option>
