@@ -1,8 +1,6 @@
-export enum Frecuency {
+export enum Cadence {
     WEEKLY = 'WEEKLY',
+    BIWEEKLY = 'BIWEEKLY',
     MONTHLY = 'MONTHLY',
     BIMONTHLY = 'BIMONTHLY',
-    QUARTERLY = 'QUARTERLY',
-    SEMIANNUAL = 'SEMIANNUAL',
-    ANNUAL = 'ANNUAL'
 }

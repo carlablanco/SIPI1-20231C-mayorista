@@ -1,17 +1,34 @@
-import { Frecuency } from "@/enums/enums";
+import { Cadence } from "@/enums/enums";
 import { IProduct } from "./responses";
+
+interface IPayload {
+    body: any;
+    urlParams: any;
+}
+
+interface ILoginPayloadBody {
+    email: string;
+    password: string;
+}
 
 /**
  * Payload for the login request
  *
- * @interface ILoginPayload
+ * @class LoginPayload
  * @field {email} email of the user
  * @field {password} password of the user
  */
-export interface ILoginPayload {
-    email: string;
-    password: string;
+export class LoginPayload implements IPayload {
+    body: ILoginPayloadBody = { email: "", password: ""};
+    urlParams = null;
+    constructor(body: ILoginPayloadBody) {
+        body = body;
+    }
 }
+
+
+
+//TO-DO cambiar estas interfaces a clases que usen el IPayload
 
 /**
  * Payload for the register request
@@ -80,13 +97,13 @@ export interface IDeleteSubscriptionPayload {
   * @interface ISubscribePayload
   * @field {userId} id of the user
   * @field {productId} id of the product
-  * @field {frecuency} frecuency of the subscription
+  * @field {cadence} cadence of the subscription
   * @field {quantity} quantity of people for the subscription
   */
 export interface ISubscribePayload {
     userId: string;
     productId: string;
-    frecuency?: Frecuency; 
+    cadence?: Cadence; 
     quantity?: number;
 }
 
@@ -97,13 +114,13 @@ export interface ISubscribePayload {
   * @interface IUpdateSuscriptionPayload
   * @field {userId} id of the user
   * @field {subscriptionId} id of the subscription
-  * @field {frecuency} frecuency of the subscription
+  * @field {cadence} cadence of the subscription
   * @field {quantity} quantity of people for the subscription
   */
 export interface IUpdateSubscriptionPayload {
     userId: string;
     subscriptionId: string;
-    frecuency?: Frecuency;
+    cadence?: Cadence;
     quantity?: number;
 }
 
@@ -118,7 +135,7 @@ export interface IUpdateSubscriptionPayload {
  * @field {price} price of the product
  * @field {brand} brand of the product
  * @field {imgUrl} image url of the product
- * @field {unitOfMeasure} unit of measure of the product
+ * @field {measurementUnit } unit of measure of the product
  * @field {productList} list of products, apply only to prodcut packs
  */
 export interface IModifyProductPayload {
@@ -129,6 +146,6 @@ export interface IModifyProductPayload {
     price?: number;
     brand?: string;
     imgUrl?: string;
-    unitOfMeasure?: string;
+    measurementUnit ?: string;
     productList?: Array<IProduct>;
 }

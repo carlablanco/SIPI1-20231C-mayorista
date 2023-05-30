@@ -1,4 +1,4 @@
-.productlist-container {
+.subscriptionlist-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -7,7 +7,7 @@
     max-width: 1200px;
 }
 
-.productlist-container h1 {
+.subscriptionlist-container h1 {
     margin-top: 2em;
     text-align: center;
     /* margin: 0 auto; */
@@ -15,7 +15,7 @@
     font-weight: 600;
 }
 
-.product-list {
+.subscription-list {
     padding-bottom: 5em;
 
 }
@@ -34,7 +34,7 @@
 }
 
 
-.product-info h3 {
+.subscription-info h3 {
     font-size: 1em;
     font-weight: bold;
 }

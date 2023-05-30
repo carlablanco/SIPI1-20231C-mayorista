@@ -1,4 +1,11 @@
-import { Frecuency } from "@/enums/enums";
+import { Cadence } from "@/enums/enums";
+
+
+
+interface IResponse{
+    status: number;
+    message: string;
+}
 
  /**
   * Response of the getProducts request
@@ -6,9 +13,15 @@ import { Frecuency } from "@/enums/enums";
   * @interface IGetProductsResponse
   * @field {products} list of products
   */
-export interface IGetProductsResponse {
-    products: IProduct[];
+export interface IGetProductsResponse extends IResponse {
+    response: {
+      products: IProduct[]
+    };
 }
+
+
+
+//TO-DO Mover esto a otro lado, en realidad no son responses
 
  /**
   * Product Interface
@@ -21,8 +34,8 @@ export interface IGetProductsResponse {
   * @field {price} price of the product
   * @field {brand} brand of the product
   * @field {imgUrl} image url of the product
-  * @field {unitOfMeasure} unit of measure of the product
-  * @field {provider} provider of the product
+  * @field {measurementUnit } unit of measure of the product
+  * @field {supplier} supplier of the product
   * @field {productList} list of products, apply only to product packs
   * 
   */
@@ -34,8 +47,8 @@ export interface IProduct {
     price?: number;
     brand?: string;
     imgUrl?: string;
-    unitOfMeasure?: string;
-    provider?: string;
+    measurementUnit ?: string;
+    supplier?: string;
     productList: IProduct[];
 }
 
@@ -54,18 +67,21 @@ export interface IGetSubscriptionsResponse {
   *
   * @interface ISubscription
   * @field {subscriptionId} id of the subscription
-  * @field {productName} name of the product
-  * @field {frecuency} frecuency of the subscription
-  * @field {quantity} quantity of people for the subscription
+  * @field {userId} id of the user subscribed
+  * @field {name} name of the susbcription
+  * @field {cadence} cadence of the subscription
+  * @field {numberOfPeople} number of people for the subscription
   * @field {price} price of the subscription
   * @field {imgUrl} image url of the subscription
   */
 
 export interface ISubscription {
     subscriptionId: string;
-    productName?: string;
-    frecuency?: Frecuency;
-    quantity?: number;
-    price?: number;
-    imgUrl?: string;
+    userId?: string;
+    name: string;
+    cadence: Cadence;
+    numberOfPeople: number;
+    price: number;
+    imgUrl: string;
+    productList: IProduct[];
 }
