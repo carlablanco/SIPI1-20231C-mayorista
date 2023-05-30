@@ -10,9 +10,18 @@ export default function Subscripcion({params}: any) {
     const producto =
       {
         id: {product},
-        nombre: `Producto ${product}`,
-        img: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-        descripción: "Descripción del producto",
+        nombre: `Pack ${product}`,
+        img: "https://previews.123rf.com/images/prettyvectors/prettyvectors1605/prettyvectors160500174/56975107-alimentos-en-paquete-entrega-de-comida-vector-ilustraci%C3%B3n-de-dibujos-animados-plana.jpg",
+        descripcion: [
+          "- Arroz",
+          "- Fideos",
+          "- Azúcar",
+          "- Yerba",
+          "- Harina",
+          "- Polenta",
+          "- Lentejas",
+          "- Porotos",
+        ],
         unidad_de_medicion: "kg",
         marca: "Marca 1",
         empresa_proveedora: "Empresa 1",
