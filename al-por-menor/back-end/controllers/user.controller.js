@@ -15,7 +15,7 @@ exports.userLogIn = async function (req, res, next) {
 
         var user = await UserService.loginUser(data);
 
-        return res.status(204).json(user)
+        return res.status(200).json(user)
     } catch (e) {
         console.log(e)
         return res.status(500).json({ message: "User login failed" })
@@ -43,7 +43,7 @@ exports.userRegister = async function (req, res, next) {
 
         var user = await UserService.createUser(data)
 
-        return res.status(204).json(user)
+        return res.status(200).json(user)
     } catch (e) {
         return res.status(500).json({ message: "User creation was unsuccesfull" })
     }
