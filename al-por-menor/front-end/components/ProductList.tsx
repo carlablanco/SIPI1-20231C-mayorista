@@ -8,8 +8,17 @@ export function ProductList() {
   let products = [
     {
         id: 1,
-        nombre: "Producto 1",
-        descripción: "Descripción del producto 1",
+        nombre: "Pack 1",
+        descripcion: [
+          "1kg de arroz",
+          "1kg de fideos",
+          "1kg de azúcar",
+          "1kg de yerba",
+          "1kg de harina",
+          "1kg de polenta",
+          "1kg de lentejas",
+          "1kg de porotos",
+        ],
         unidad_de_medicion: "kg",
         marca: "Marca 1",
         empresa_proveedora: "Empresa 1",
@@ -18,7 +27,7 @@ export function ProductList() {
     },
     {
         id: 2,
-        nombre: "Producto 2",
+        nombre: "Pack 2",
         descripción: "Descripción del producto 2",
         unidad_de_medicion: "kg",
         marca: "Marca 2",
@@ -28,7 +37,7 @@ export function ProductList() {
     },
     {
         id: 3,
-        nombre: "Producto 3",
+        nombre: "Pack 3",
         descripción: "Descripción del producto 3",
         unidad_de_medicion: "kg",
         marca: "Marca 3",
@@ -38,7 +47,7 @@ export function ProductList() {
     },
     {
         id: 4,
-        nombre: "Producto 4",
+        nombre: "Pack 4",
         descripción: "Descripción del producto 4",
         unidad_de_medicion: "kg",
         marca: "Marca 4",
@@ -48,7 +57,7 @@ export function ProductList() {
     },
     {
         id: 5,
-        nombre: "Producto 5",
+        nombre: "Pack 5",
         descripción: "Descripción del producto 5",
         unidad_de_medicion: "kg",
         marca: "Marca 5",
@@ -58,7 +67,7 @@ export function ProductList() {
     },
     {
         id: 6,
-        nombre: "Producto 6",
+        nombre: "Pack 6",
         descripción: "Descripción del producto 6",
         unidad_de_medicion: "kg",
         marca: "Marca 6",
@@ -68,7 +77,7 @@ export function ProductList() {
     },
     {
         id: 7,
-        nombre: "Producto 7",
+        nombre: "Pack 7",
         descripción: "Descripción del producto 7",
         unidad_de_medicion: "kg",
         marca: "Marca 7",
@@ -78,7 +87,7 @@ export function ProductList() {
     },
     {
         id: 8,
-        nombre: "Producto 8",
+        nombre: "Pack 8",
         descripción: "Descripción del producto 8",
         unidad_de_medicion: "kg",
         marca: "Marca 8",
@@ -88,7 +97,7 @@ export function ProductList() {
     },
     {
         id: 9,
-        nombre: "Producto 9",
+        nombre: "Pack 9",
         descripción: "Descripción del producto 9",
         unidad_de_medicion: "kg",
         marca: "Marca 9",
@@ -98,7 +107,7 @@ export function ProductList() {
     },
     {
         id: 10,
-        nombre: "Producto 10",
+        nombre: "Pack 10",
         descripción: "Descripción del producto 10",
         unidad_de_medicion: "kg",
         marca: "Marca 10",
@@ -108,7 +117,7 @@ export function ProductList() {
     },
     {
         id: 11,
-        nombre: "Producto 11",
+        nombre: "Pack 11",
         descripción: "Descripción del producto 11",
         unidad_de_medicion: "kg",
         marca: "Marca 11",
@@ -118,7 +127,7 @@ export function ProductList() {
     },
     {
         id: 12,
-        nombre: "Producto 12",
+        nombre: "Pack 12",
         descripción: "Descripción del producto 12",
         unidad_de_medicion: "kg",
         marca: "Marca 12",
@@ -138,7 +147,7 @@ export function ProductList() {
           {
             products.map((product, index) => {
               return (
-                <Product key={index} id={product.id} nombre={product.nombre} precio={product.precio}/>
+                <Product key={index} product={product}/>
               )
             })
           }

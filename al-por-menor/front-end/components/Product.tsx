@@ -3,12 +3,12 @@ import '../app/(productos)/product-list/ProductsStyles.css'
 import Link from 'next/link'
 
 
-export const Product = (product: any) => {
+export const Product = ({product}: any) => {
   return (
     <Link href={`subscripcion/${product.id}`} className="group" key={product.id} data-aos="zoom-y-out">
         <div className='product-info'>
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center group-hover:opacity-75"/>
+            <img src="https://previews.123rf.com/images/prettyvectors/prettyvectors1605/prettyvectors160500174/56975107-alimentos-en-paquete-entrega-de-comida-vector-ilustraci%C3%B3n-de-dibujos-animados-plana.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center group-hover:opacity-75"/>
           </div>
           <h3 className="mt-4 text-sm text-gray-700">{product.nombre}</h3>
           <p className="mt-1 text-lg font-medium text-gray-900">${product.precio}</p>
