@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useContext} from 'react'
 import img from '../public/images/defaultUserImg.png'
 import Image from 'next/image'
 import { Menu, Transition } from '@headlessui/react'
+import Link from 'next/link'
+import { UserContext } from '@/app/context/userContext'
 
 export default function UserMenu() {
+
+    const {logout} = useContext(UserContext)
 
     function classNames(...classes :any) {
         return classes.filter(Boolean).join(' ')
@@ -53,12 +57,13 @@ export default function UserMenu() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href={'/'}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            onClick={()=> logout()}
                           >
                             Logout
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
