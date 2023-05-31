@@ -18,10 +18,16 @@ export default function Sub({product}: any) {
                         <section aria-labelledby="information-heading" className="mt-2">
                             <h3 id="information-heading" className="sr-only">Product information</h3>
                 
-                            <p className="text-2xl text-gray-900">${product.precio}</p>
+                            <p className="text-2xl text-gray-900">${product.precio}</p>     
 
-                            <p className="text-1xl text-gray-900">{product.descripcion}</p>
-                
+                            <div className='pack-content'>
+                                <h3 >Contenido del pack:</h3>
+                                    {
+                                        product.descripcion.map((item: any) => (	
+                                            <p className="text-1xl text-gray-900 " >{item}</p>
+                                        ))
+                                    } 
+                            </div>          
                 
                             <div className="mt-6">
                             <div className="flex items-center">
@@ -48,6 +54,7 @@ export default function Sub({product}: any) {
                             </div>
                             </div>
                         </section>
+
                 
                         <section aria-labelledby="options-heading" className="mt-10">
                             <h3 id="options-heading" className="sr-only">Product options</h3>
@@ -61,7 +68,7 @@ export default function Sub({product}: any) {
                 
                             <fieldset className="mt-4 radio-inputs-1">
                             <legend className="sr-only">Choose a size</legend>
-                            <div className="grid grid-cols-4 gap-4 options-container-1">
+                            <div className="grid grid-cols-5 gap-4 options-container-1">
                                 <label className="radio-1">
                                 <input type="radio" name="size-choice" value="XXS" className="sr-only" aria-labelledby="size-choice-0-label" />
                                 <span className="name-1" id="size-choice-0-label">1</span>
@@ -75,8 +82,12 @@ export default function Sub({product}: any) {
                                 <span className="name-1" id="size-choice-2-label">3</span>
                                 </label>
                                 <label className="radio-1">
-                                <input type="radio" name="size-choice" value="M" className="sr-only" aria-labelledby="size-choice-3-label" />
-                                <span className="name-1" id="size-choice-3-label">Otro</span>
+                                <input type="radio" name="size-choice" value="S" className="sr-only" aria-labelledby="size-choice-2-label" />
+                                <span className="name-1" id="size-choice-2-label">4</span>
+                                </label>
+                                <label className="radio-1 ">
+                                <input type="radio" name="size-choice" value="M" className="sr-only " aria-labelledby="size-choice-3-label" />
+                                <span className="name-1 " id="size-choice-3-label">Mas</span>
                                 </label>
                             </div>
                             </fieldset>

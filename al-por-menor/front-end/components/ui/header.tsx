@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import Link from 'next/link'
 import Logo from './logo'
@@ -8,11 +8,18 @@ import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 import UserMenu from '../userMenu'
 
+import {UserContext} from '@/app/context/userContext'
+
+
 export default function Header() {
 
+  
   const [top, setTop] = useState<boolean>(true)
+  
+  const {logged} = useContext(UserContext)
+  
+  useEffect(() => {},[logged])
 
-  const [loggedIn, setLoggedIn] = useState<boolean>(false)
 
   // detect whether user has scrolled the page down by 10px
   const scrollHandler = () => {
@@ -39,7 +46,7 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             {/* Desktop sign in links */}
             {       
-            loggedIn ?     
+            !logged ?
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
                 <Link href="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Iniciar Sesión</Link>
