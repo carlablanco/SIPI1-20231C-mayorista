@@ -73,6 +73,7 @@ export interface IGetSubscriptionsResponse {
   * @field {numberOfPeople} number of people for the subscription
   * @field {price} price of the subscription
   * @field {imgUrl} image url of the subscription
+  * @field {productList} list of products for the subscription
   */
 
 export interface ISubscription {
@@ -83,5 +84,5 @@ export interface ISubscription {
     numberOfPeople: number;
     price: number;
     imgUrl: string;
-    productList: IProduct[];
+    productList: Array<IProduct>;
 }

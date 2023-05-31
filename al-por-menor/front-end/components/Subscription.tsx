@@ -1,9 +1,14 @@
 import React from 'react'
 import '../app/(subscriptions)/subscription-list/SubscriptionStyles.css'
 import Link from 'next/link'
+import { ISubscription } from '@/types/responses'
+
+interface SubscriptionProps {
+  subscription: ISubscription
+}
 
 
-export const Subscription = ({subscription}: any) => {
+export const Subscription: React.FC<SubscriptionProps> = ({subscription}) => {
   return (
     <Link href={`subscripcion/${subscription.subscriptionId}`} className="group" key={subscription.subscriptionId} data-aos="zoom-y-out">
         <div className='product-info'>
