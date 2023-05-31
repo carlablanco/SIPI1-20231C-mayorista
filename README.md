@@ -17,6 +17,9 @@ Legajo 1112631
 Federico Sena (fsena@uade.edu.ar)
 Legajo 1112998
 
+Pedro Moura (pmoura@uade.edu.ar)
+Legajo 1123499
+
 Año 2023, 1er Cuatrimestre
 
 # Dependencias
