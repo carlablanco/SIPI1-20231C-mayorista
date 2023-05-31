@@ -1,5 +1,6 @@
 import React from 'react'
 import '../app/subscripcion/[id]/styles.css'
+import Link from 'next/link'
 
 
 export default function Sub({product}: any) {
@@ -128,7 +129,7 @@ export default function Sub({product}: any) {
                     </div>
 
                 
-                            <button className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Subscribirme</button>
+                            <Link href={"/pago-envio"} className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Subscribirme</Link>
                             </form>
                         </section>
                         </div>
