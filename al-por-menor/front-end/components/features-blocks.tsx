@@ -32,7 +32,7 @@ export default function FeaturesBlocks() {
                 </g>
               </svg>
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Canasta Básica</h4>
-              <p className="text-gray-600 text-center">¡La base de una alimentación saludable y equilibrada!</p>
+              <p className="text-gray-600 text-center">¡La base de una alimentación saludable!</p>
             </div>
 
             {/* 2nd item */}
