@@ -26,23 +26,17 @@ export default function PagoEnvio() {
             <div>
             <h2>Informacion de envio</h2>
                 <form className="form">
+            
                     <div className="flex nya">
                         <label className='nameEnvio'>
-                            <input required placeholder ="Nombre" type="text" className="input"/>
+                            <input required placeholder ="Provincia" type="text" className="input"/>
                         </label>
 
                         <label className='lastEnvio'>
-                            <input required placeholder="Apellido" type="text" className="input"/>
+                            <input required placeholder="Localidad" type="text" className="input"/>
                         </label>
                     </div>  
-                            
-                    <label>
-                        <input required placeholder="Email" type="email" className="input"/>
-                    </label> 
-                        
-                    <label>
-                        <input required type="tel" placeholder="Numero de celular" className="input"/>
-                    </label>
+                      
                     <label>
                         <input required type="text" placeholder="Calle" className="input"/>
                     </label>
@@ -58,6 +52,10 @@ export default function PagoEnvio() {
                         </label>
 
                     </div>
+                        
+                    <label>
+                        <input required type="tel" placeholder="Numero de celular" className="input"/>
+                    </label>
                     <label>
                         <textarea required placeholder="Mensaje adicional" className="input01"></textarea>
                     </label>
