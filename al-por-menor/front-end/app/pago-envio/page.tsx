@@ -1,7 +1,18 @@
+'use client'
 import React from 'react';
 import "./stylesPE.css";
+import Link from 'next/link';
+import swal from 'sweetalert';
+
+
 
 export default function PagoEnvio() {
+
+    function handleAlert() {
+        swal('Gracias por subscribirte! ❤', 'Tu subscripción se realizado correctamente', 'success')
+    }
+    
+    
   return (
         <div className='payment-container'>
             <div className="credit-card-info--form">
@@ -25,7 +36,7 @@ export default function PagoEnvio() {
             </div>
             <div>
             <h2>Informacion de envio</h2>
-                <form className="form">
+                <form className="form" >
             
                     <div className="flex nya">
                         <label className='nameEnvio'>
@@ -60,7 +71,8 @@ export default function PagoEnvio() {
                         <textarea required placeholder="Mensaje adicional" className="input01"></textarea>
                     </label>
         
-                    <button className="purchase--btn">Suscribirse</button>
+                    <Link href={'/'} className="purchase--btn" onClick={()=> handleAlert()} >Suscribirse</Link>
+
                 </form>
             </div>
         </div>
