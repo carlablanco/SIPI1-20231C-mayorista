@@ -3,6 +3,7 @@ import { Cadence } from "@/enums/enums";
 import { ISubscription } from "@/types/responses";
 import React, { useState } from "react";
 import SubscriptionComponent from "./UserSubscription";
+import '../app/(profile)/profile/ProfileStyles.css';
 
 // Interface for user
 interface User {
@@ -24,10 +25,10 @@ const ProfilePage: React.FC = () => {
   // User state
   const [user, setUser] = useState<User>({
     id: 1,
-    name: "John",
-    lastName: "Doe",
-    email: "johndoe@example.com",
-    address: "1425 5th Ave #2300",
+    name: "Juan",
+    lastName: "Perez",
+    email: "johndoe@uade.edu.ar",
+    address: "Lima 773",
     city: "Buenos Aires",
     password: "",
     supplier: false,
@@ -124,8 +125,7 @@ const ProfilePage: React.FC = () => {
     setUser((prevUser) => {
       const updatedSubscriptions = prevUser.subscriptions.map((subscription) =>
         subscription?.subscriptionId === subscriptionId && subscription.numberOfPeople
-          ? { ...subscription, price: calculatePrice(subscription)
-        }
+          ? { ...subscription, price: calculatePrice(subscription) }
           : subscription
       );
       return { ...prevUser, subscriptions: updatedSubscriptions };
@@ -143,29 +143,63 @@ const ProfilePage: React.FC = () => {
 
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 items-center">
-      <p className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-2xl">Nombre: {user.name} {user.lastName} </p>
-      <p className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-2xl">Email: {user.email}</p>
-      <p className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-2xl">Direccion: {user.address}</p>
-      <p className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-2xl">Ciudad: {user.city}</p>
-
-
-      <h2 className="mx-auto max-w-4xl font-display font-medium tracking-tight text-slate-900 sm:text-4xl">Subscripciones activas:</h2>
-      <div className="bg-white grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      {user.subscriptions.map((subscription) => (
-        <SubscriptionComponent
-          key={subscription.subscriptionId}
-          subscription={subscription}
-          updateCadence={updateCadence}
-          updateNumberOfPeople={updateNumberOfPeople}
-          deleteSubscription={deleteSubscription}
-        />
-      ))}
+    <div className="profile-container mx-auto max-w-1200px">
+      <div className="group">
+        <div className="profile-input">
+          <label htmlFor="name">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            value={`${user.name} ${user.lastName}`}
+            readOnly={false} // Cambia readOnly a false
+          />
+        </div>
+        <div className="profile-input">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={user.email}
+            readOnly={false} // Cambia readOnly a false
+          />
+        </div>
+        <div className="profile-input">
+          <label htmlFor="address">Dirección:</label>
+          <input
+            type="text"
+            id="address"
+            value={user.address}
+            readOnly={false} // Cambia readOnly a false
+          />
+        </div>
+        <div className="profile-input">
+          <label htmlFor="city">Ciudad:</label>
+          <input
+            type="text"
+            id="city"
+            value={user.city}
+            readOnly={false} // Cambia readOnly a false
+          />
+        </div>
       </div>
-      <div>
-        <button disabled={!isEditing} className="btn text-white bg-blue-600 hover:bg-blue-700 w-full sm:w-auto sm:ml-4 disabled:opacity-50">Guardar Cambios</button>
+  
+      <div className="profile-details">
+        <h2 className="text-2xl font-bold mb-4">Subscripciones activas:</h2>
+        <div className="subscription-list">
+          {user.subscriptions.map((subscription) => (
+            <div className="subscription-container" key={subscription.subscriptionId}>
+              <SubscriptionComponent
+                subscription={subscription}
+                updateCadence={updateCadence}
+                updateNumberOfPeople={updateNumberOfPeople}
+                deleteSubscription={deleteSubscription}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  );
+  );  
 };
+
 export default ProfilePage;
