@@ -1,8 +1,15 @@
 
 'use client'
 import React, { useState } from 'react';
-import { Box, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
 import ProfilePage from './Profile';
+import AddressMenu from './AddressMenu';
+import PaymentMethodMenu from './UserPaymentMethods';
+import BadgeIcon from '@mui/icons-material/Badge';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Sidebar = () => {
   const [selectedOption, setSelectedOption] = useState('Mis datos');
@@ -11,19 +18,40 @@ const Sidebar = () => {
     setSelectedOption(option);
   };
 
+  const MenuOptions = [
+    {
+      name: 'Mis datos',
+      icon: <BadgeIcon />,
+    },
+    {
+      name: 'Mis domicilios',
+      icon: <LocationOnIcon />,
+    },
+    {
+      name: 'Mis tarjetas de pago',
+      icon: <CreditCardIcon />,
+    },
+    {
+      name: 'Mis pedidos',
+      icon: <ShoppingBagIcon />,
+    },
+  ];
+
   return (
     <Box sx={{ display: 'flex' }}>
       {/* Sidebar */}
       <Drawer variant="permanent" anchor="left">
           <List>
-            {['Mis datos', 'Mis domicilios', 'Mis tarjetas de pago', 'Mis pedidos'].map((option) => (
+            {MenuOptions.map((option) => (
               <ListItem
                 button
-                key={option}
-                selected={selectedOption === option}
-                onClick={() => handleOptionClick(option)}
+                key={option.name}
+                selected={selectedOption === option.name}
+                onClick={() => handleOptionClick(option.name)}
               >
-                <ListItemText primary={option} />
+                <ListItemIcon>{option.icon}</ListItemIcon>
+                <ListItemText primary={option.name} />
+                <ArrowForwardIosIcon/>
               </ListItem>
             ))}
           </List>
@@ -31,8 +59,8 @@ const Sidebar = () => {
 
         {/* Component Content */}
         {selectedOption === 'Mis datos' && <ProfilePage/>}
-        {selectedOption === 'Mis domicilios' && <h1>Mis domicilios component</h1>}
-        {selectedOption === 'Mis tarjetas de pago' && <h1>Mis tarjetas de pago component</h1>}
+        {selectedOption === 'Mis domicilios' && <AddressMenu/>}
+        {selectedOption === 'Mis tarjetas de pago' && <PaymentMethodMenu/>}
         {selectedOption === 'Mis pedidos' && <h1>Mis pedidos component</h1>}
     </Box>
   );

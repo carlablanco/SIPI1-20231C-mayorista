@@ -18,8 +18,9 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    align-items: center;
+    align-items: end;
+    gap: 3em;
+    padding-right: 24vw;
   }
   
   .group button {
@@ -52,4 +53,14 @@
   .footer {
     margin-top: 2cm;
   }
+
+  .MuiDrawer-paperAnchorDockedLeft {
+    min-width: 19vw;
+    height: 24vh;
+    top: 34vh;
+    border-right: none;
+    left: 21vw;
+  }	
+
+
   
