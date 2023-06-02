@@ -12,23 +12,23 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [2, 255], // Minimo 2, maximo 20 caracteres
-          is: /^[A-Za-z]+$/ // Valida que solo tenga letras
+          len: [2, 255], // Minimum 2, maximum 255 characters
+          is: /^[A-Za-z]+$/ // Validates that it contains only letters
         },
       },
       lastName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [2, 20], // Minimo 2, maximo 20 caracteres
-          is: /^[A-Za-z]+$/ // Valida que solo tenga letras
+          len: [2, 20], // Minimum 2, maximum 20 characters
+          is: /^[A-Za-z]+$/ // Validates that it contains only letters
         },
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          isEmail: true, // Valida que sea un formato mail
+          isEmail: true, // Validates that it has an email format
         },
       },
       address: {
