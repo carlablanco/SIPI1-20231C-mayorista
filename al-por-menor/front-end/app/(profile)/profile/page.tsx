@@ -1,7 +1,8 @@
+'use client'
 import React from 'react'
 import './ProfileStyles.css'
 import Footer from '@/components/ui/footer'
-import ProfilePage from '@/components/Profile'
+import UserSidebar from '@/components/UserSidebar'
 
 export default function Profile() {
   return (
@@ -15,7 +16,7 @@ export default function Profile() {
             <span className="relative"> perfil.</span>
           </span>
         </h1>
-        <ProfilePage />
+        <UserSidebar />
       </div>
       <Footer />
     </div>
