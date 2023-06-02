@@ -16,7 +16,6 @@ router.post('/user/:userId/subscriptions', SubscriptionController.subscribeUser)
 router.patch('/user/:userId/subscriptions/:subscriptionId', SubscriptionController.modifyUserSubscription);
 router.delete('/user/:userId/subscriptions/:subscriptionId', SubscriptionController.cancelUserSubscription);
 
-router.get('/subscriptions/:subscriptionId/products', productController.getProductsForSubscription);
 router.get('/products/:productId', productController.getProduct);
 
 router.post('/products', productController.createProduct);

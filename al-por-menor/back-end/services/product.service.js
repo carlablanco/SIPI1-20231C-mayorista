@@ -1,24 +1,5 @@
-const { Product, SubscriptionProduct } = require('../models');
+const { Product } = require('../models');
 
-// Get list of products for a given subscriptionId
-async function getProductsForSubscription(subscriptionId) {
-    try {
-        const products = await Product.findAll({
-            include: [
-                {
-                    model: SubscriptionProduct,
-                    where: { subscriptionId },
-                    attributes: ['quantity'],
-                },
-            ],
-        });
-
-        return products;
-    } catch (error) {
-        console.error('Error retrieving products for subscription:', error);
-        throw error;
-    }
-}
 
 async function getProduct(productId) {
     try {
@@ -65,7 +46,6 @@ async function deleteProduct(productId) {
 }
 
 module.exports = {
-    getProductsForSubscription,
     getProduct,
     createProduct,
     updateProduct,

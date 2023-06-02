@@ -1,17 +1,5 @@
 const productService = require('../services/product.service');
 
-async function getProductsForSubscription(req, res, next) {
-    const { subscriptionId } = req.params;
-  
-    try {
-      const products = await productService.getProductsForSubscription(subscriptionId);
-      res.json(products);
-    } catch (error) {
-      console.error('Error retrieving products for subscription:', error);
-      next(error);
-    }
-  }
-
 async function getProduct(req, res, next) {
     const { productId } = req.params;
 
@@ -62,7 +50,6 @@ async function deleteProduct(req, res, next) {
 }
 
 module.exports = {
-    getProductsForSubscription,
     getProduct,
     createProduct,
     updateProduct,
