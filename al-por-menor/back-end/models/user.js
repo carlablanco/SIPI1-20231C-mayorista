@@ -31,19 +31,11 @@ module.exports = (sequelize, DataTypes) => {
           isEmail: true, // Validates that it has an email format
         },
       },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      city: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      supplier: {
+      isAdmin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },

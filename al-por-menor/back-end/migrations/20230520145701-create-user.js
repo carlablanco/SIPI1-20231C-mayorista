@@ -22,13 +22,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      address: {
-        type: Sequelize.STRING
-      },
-      city: {
-        type: Sequelize.STRING
-      },
-      supplier: {
+      isAdmin: {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
