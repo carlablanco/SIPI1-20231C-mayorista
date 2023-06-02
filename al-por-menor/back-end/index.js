@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
 
 // Rutas
-app.use(require('./routes'));
+app.use('/api/', require('./routes'));
 
 app.listen(port, function () {
   console.log(`Listening on http://localhost:${port}!`);
