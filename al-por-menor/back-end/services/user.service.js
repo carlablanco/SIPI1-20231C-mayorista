@@ -1,6 +1,10 @@
 const { User } = require("../models");
+const UserAddress = require('../models').UserAddress;
+const UserPaymentMethod = require('../models').UserPaymentMethod;
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
+
 
 async function hashPassword(plaintextPassword) {
     const hash = await bcrypt.hash(plaintextPassword, 10);
@@ -125,3 +129,102 @@ exports.loginUser = async function (user) {
         throw Error("Error while Login User")
     }
 }
+
+// Create a new user address
+async function createUserAddress(userId, addressData) {
+    try {
+      const userAddress = await UserAddress.create({ userId, ...addressData });
+      return userAddress;
+    } catch (error) {
+      throw new Error('Failed to create user address');
+    }
+  }
+  
+  // Update an existing user address
+  async function updateUserAddress(addressId, addressData) {
+    try {
+      const [rowsUpdated, [updatedUserAddress]] = await UserAddress.update(addressData, {
+        where: { id: addressId },
+        returning: true,
+      });
+      
+      if (rowsUpdated === 0) {
+        throw new Error('User address not found');
+      }
+      
+      return updatedUserAddress;
+    } catch (error) {
+      throw new Error('Failed to update user address');
+    }
+  }
+  
+  // Delete a user address
+  async function deleteUserAddress(addressId) {
+    try {
+      const rowsDeleted = await UserAddress.destroy({
+        where: { id: addressId },
+      });
+  
+      if (rowsDeleted === 0) {
+        throw new Error('User address not found');
+      }
+  
+      return true;
+    } catch (error) {
+      throw new Error('Failed to delete user address');
+    }
+  }
+  
+  // Create a new user payment method
+  async function createUserPaymentMethod(userId, paymentMethodData) {
+    try {
+      const userPaymentMethod = await UserPaymentMethod.create({ userId, ...paymentMethodData });
+      return userPaymentMethod;
+    } catch (error) {
+      throw new Error('Failed to create user payment method');
+    }
+  }
+  
+  // Update an existing user payment method
+  async function updateUserPaymentMethod(paymentMethodId, paymentMethodData) {
+    try {
+      const [rowsUpdated, [updatedUserPaymentMethod]] = await UserPaymentMethod.update(paymentMethodData, {
+        where: { id: paymentMethodId },
+        returning: true,
+      });
+      
+      if (rowsUpdated === 0) {
+        throw new Error('User payment method not found');
+      }
+      
+      return updatedUserPaymentMethod;
+    } catch (error) {
+      throw new Error('Failed to update user payment method');
+    }
+  }
+  
+  // Delete a user payment method
+  async function deleteUserPaymentMethod(paymentMethodId) {
+    try {
+      const rowsDeleted = await UserPaymentMethod.destroy({
+        where: { id: paymentMethodId },
+      });
+  
+      if (rowsDeleted === 0) {
+        throw new Error('User payment method not found');
+      }
+  
+      return true;
+    } catch (error) {
+      throw new Error('Failed to delete user payment method');
+    }
+  }
+  
+  module.exports = {
+    createUserAddress,
+    updateUserAddress,
+    deleteUserAddress,
+    createUserPaymentMethod,
+    updateUserPaymentMethod,
+    deleteUserPaymentMethod,
+  };
