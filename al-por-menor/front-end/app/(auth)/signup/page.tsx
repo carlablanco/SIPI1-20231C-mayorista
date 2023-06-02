@@ -27,6 +27,12 @@ export default function SignUp() {
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
+                  <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="name">Apellido <span className="text-red-600">*</span></label>
+                  <input id="lastName" type="text" className="form-input w-full text-gray-800" placeholder="Ingresá tu apellido" required />
+                </div>
+              </div>
+              <div className="flex flex-wrap -mx-3 mb-4">
+                <div className="w-full px-3">
                   <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Mail <span className="text-red-600">*</span></label>
                   <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Ingresá tu mail" required />
                 </div>

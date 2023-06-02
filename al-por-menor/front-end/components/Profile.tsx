@@ -50,7 +50,16 @@ const ProfilePage: React.FC = () => {
           <input
             type="text"
             id="name"
-            value={`${user.name} ${user.lastName}`}
+            value={`${user.name}`}
+            readOnly={false} // Cambia readOnly a false
+          />
+        </div>
+        <div className="profile-input">
+          <label htmlFor="name">Apellido: </label>
+          <input
+            type="text"
+            id="lastName"
+            value={`${user.lastName}`}
             readOnly={false} // Cambia readOnly a false
           />
         </div>
