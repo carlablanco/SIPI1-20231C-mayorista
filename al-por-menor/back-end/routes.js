@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 // Controllers
-const UserController = require("./controllers/user.controller")
-const productController = require('../controllers/product.controller');
+const userController = require("./controllers/user.controller")
+const productController = require('./controllers/product.controller');
 
-router.post('/login', UserController.userLogIn);
-router.post('/register', UserController.userRegister);
+router.post('/login', userController.userLogIn);
+router.post('/register', userController.userRegister);
 
 router.get('/products/:productId', productController.getProduct);
 // User Address routes

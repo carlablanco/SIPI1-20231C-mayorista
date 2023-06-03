@@ -16,7 +16,7 @@ async function comparePassword(plaintextPassword, hash) {
     return result;
 }
 
-exports.userExists = async function (user) {
+async function userExists(user) {
     try {
         const userExists = await User.findOne({
             where: {
@@ -36,7 +36,7 @@ exports.userExists = async function (user) {
     }
 }
 
-exports.getUserIdByEmail = async function (user) {
+async function getUserIdByEmail(user) {
     try {
         const userExists = await User.findOne({
             where: {
@@ -56,7 +56,7 @@ exports.getUserIdByEmail = async function (user) {
     }
 }
 
-exports.createUser = async function (user) {
+async function createUser(user) {
     try {
         const hashedPassword = await hashPassword(user.password)
 
@@ -65,9 +65,7 @@ exports.createUser = async function (user) {
             lastName: user.lastName,
             email: user.email,
             password: hashedPassword,
-            supplier: user.supplier,
-            address: user.address,
-            city: user.city,
+            isAdmin: user.isAdmin,
         });
 
         const token = jwt.sign({
@@ -79,7 +77,7 @@ exports.createUser = async function (user) {
 
         await createdUser.save()
 
-        return { id: createdUser.id, name: createdUser.name, lastName: createdUser.lastName, email: createdUser.email, address: createdUser.address, city: createdUser.city, supplier: createdUser.supplier, token };
+        return { id: createdUser.id, name: createdUser.name, lastName: createdUser.lastName, email: createdUser.email, isAdmin: createdUser.isAdmin, token };
 
     } catch (e) {
         console.log(e)
@@ -87,7 +85,7 @@ exports.createUser = async function (user) {
     }
 }
 
-exports.checkUserPassword = async function (user) {
+async function checkUserPassword(user) {
     try {
         const userSearch = await User.findOne({
             where: {
@@ -107,7 +105,7 @@ exports.checkUserPassword = async function (user) {
     }
 }
 
-exports.loginUser = async function (user) {
+async function loginUser(user) {
     try {
         const userSearch = await User.findOne({
             where: {
@@ -221,6 +219,11 @@ async function createUserAddress(userId, addressData) {
   }
   
   module.exports = {
+    userExists,
+    getUserIdByEmail,
+    createUser,
+    loginUser,
+    checkUserPassword,
     createUserAddress,
     updateUserAddress,
     deleteUserAddress,

@@ -3,7 +3,7 @@ const UserService = require('../services/user.service');
 const UserAddress = require('../models').UserAddress;
 const UserPaymentMethod = require('../models').UserPaymentMethod;
 
-exports.userLogIn = async function (req, res, next) {
+async function userLogIn(req, res, next) {
     var data = {
         email: req.body.email,
         password: req.body.password
@@ -26,15 +26,13 @@ exports.userLogIn = async function (req, res, next) {
 }
 
 
-exports.userRegister = async function (req, res, next) {
+async function userRegister(req, res, next) {
     var data = {
         name: req.body.name,
         lastName: req.body.lastName,
         email: req.body.email,
         password: req.body.password,
-        address: req.body.address,
-        city: req.body.city,
-        supplier: false
+        isAdmin: false
     }
 
     try {
@@ -48,6 +46,7 @@ exports.userRegister = async function (req, res, next) {
 
         return res.status(200).json(user)
     } catch (e) {
+        console.log(e)
         return res.status(500).json({ message: "User creation was unsuccesfull" })
     }
 }
@@ -163,4 +162,6 @@ async function createUserAddress(req, res, next) {
     createUserPaymentMethod,
     updateUserPaymentMethod,
     deleteUserPaymentMethod,
+    userLogIn,
+    userRegister,
   };
