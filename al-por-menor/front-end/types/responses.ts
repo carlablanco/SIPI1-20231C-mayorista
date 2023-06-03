@@ -67,7 +67,7 @@ export interface IProductPromotion {
   supplier?: string;
   publishDate?: Date;
   endDate?: Date;
-  unitsSold?: number;
+  unitsSold: number;
 }
 
  /**
