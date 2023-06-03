@@ -33,7 +33,7 @@ export function ProductList(this: any) {
       ],
       imgUrl: "https://images.unsplash.com/photo-1612837017391-4b6b7b0b0b0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydGZvbGlvfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
       publishDate: new Date(),
-      endDate: addDays(3),
+      endDate: addDays(1),
       description: "Tomate de la huerta",
       brand: "La huerta de Juan",
       category: "Verduras",
