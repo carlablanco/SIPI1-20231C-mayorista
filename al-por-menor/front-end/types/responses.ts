@@ -19,8 +19,6 @@ export interface IGetProductsResponse extends IResponse {
     };
 }
 
-
-
 //TO-DO Mover esto a otro lado, en realidad no son responses
 
  /**
@@ -52,6 +50,26 @@ export interface IProduct {
     productList: IProduct[];
 }
 
+export interface IPriceList {
+  price: number;
+  unitsNeeded: number;
+}
+
+export interface IProductPromotion {
+  productId: string;
+  name?: string;
+  description?: string;
+  category?: string;
+  priceList?: IPriceList[];
+  brand?: string;
+  imgUrl?: string;
+  measurementUnit ?: string;
+  supplier?: string;
+  publishDate?: Date;
+  endDate?: Date;
+  unitsSold?: number;
+}
+
  /**
   * Response of the getSubscriptions request
   *
@@ -75,7 +93,6 @@ export interface IGetSubscriptionsResponse {
   * @field {imgUrl} image url of the subscription
   * @field {productList} list of products for the subscription
   */
-
 export interface ISubscription {
     subscriptionId: string;
     userId?: string;

@@ -14,20 +14,13 @@
     font-weight: 600;
   }
   
-  .subscription-list {
-    padding-bottom: 5em;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .group {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    align-items: center;
+    align-items: end;
+    gap: 3em;
+    padding-right: 24vw;
   }
   
   .group button {
@@ -36,29 +29,10 @@
     align-items: center;
   }
   
-  .subscription-info h3 {
-    font-size: 1em;
-    font-weight: bold;
-    width: 10%;
-    align-items: center;
-  }
-  
-  .subscription-container {
-    background-color: #f3f4f6;
-    margin: 0.5em;
-    padding: 1em;
-    border-radius: 5px;
-  }
-  
   .profile-info {
     margin: 0;
   }
-  
-  .subscription-list.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   
   .profile-input input {
     width: 200px; 
@@ -71,4 +45,22 @@
     border-radius: 4px;
     margin-top: 20px;
   }
+  
+  .profile-container {
+    margin-bottom: 2cm;
+  }
+  
+  .footer {
+    margin-top: 2cm;
+  }
+
+  .MuiDrawer-paperAnchorDockedLeft {
+    min-width: 19vw;
+    height: 24vh;
+    top: 34vh;
+    border-right: none;
+    left: 21vw;
+  }	
+
+
   
