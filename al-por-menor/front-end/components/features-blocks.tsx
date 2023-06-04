@@ -11,7 +11,7 @@ export default function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">Explorá los planes que tenemos para vos y tu familia.</h2>
+            <h2 className="h2 mb-4">¡Descubre qué es lo más popular entre nuestros clientes!</h2>
             
           </div>
 

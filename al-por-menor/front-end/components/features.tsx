@@ -44,9 +44,8 @@ export default function Features() {
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">Descubrí nuestro sistema de suscripciones</h3>
-                <p className="text-xl text-gray-600">Suscribite a planes de compra mensual, semestral o anual y despreocupate por las compras: nosotros
-                compramos y ahorramos por vos.</p>
+                <h3 className="h3 mb-3">Descubrí nuestro sistema de compras</h3>
+                <p className="text-xl text-gray-600">¡Compra los productos que desees sin un mínimo requerido! ¡A mayor cantidad de compradores, menor será el precio final!</p>
               </div>
               {/* Tabs buttons */}
 
