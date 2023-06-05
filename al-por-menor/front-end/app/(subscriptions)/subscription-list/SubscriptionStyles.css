@@ -38,3 +38,13 @@
     font-size: 1em;
     font-weight: bold;
 }
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .MuiOutlinedInput-input {
+    padding-left: 30px; /* Adjust the padding as needed */
+  }
