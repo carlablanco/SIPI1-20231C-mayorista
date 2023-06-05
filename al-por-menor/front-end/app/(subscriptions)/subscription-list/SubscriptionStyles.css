@@ -8,10 +8,10 @@
 }
 
 .subscriptionlist-container h1 {
-    margin-top: 2em;
+    margin-top: 3em;
     text-align: center;
     /* margin: 0 auto; */
-    padding: 20px;
+    padding: 5px;
     font-weight: 600;
 }
 
@@ -38,3 +38,23 @@
     font-size: 1em;
     font-weight: bold;
 }
+
+.categories-search-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5px; /* Adjust the top separation as desired */
+  margin-bottom: 20px; /* Adjust the bottom separation as desired */
+  }
+  
+
+.categorias {
+  margin-right: 10px; /* Adjust the spacing as desired */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+    
