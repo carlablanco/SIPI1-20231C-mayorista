@@ -24,7 +24,7 @@ export const users = [
       password: 'secreto456',
       optCode: 5678,
       optExpiration: '2023-06-30',
-      isAdmin: true,
+      isAdmin: false,
     },
     // Add more user objects as needed
   ];
