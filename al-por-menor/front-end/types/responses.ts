@@ -46,7 +46,7 @@ export interface IProduct {
     brand?: string;
     imgUrl?: string;
     measurementUnit ?: string;
-    supplier?: string;
+    supplyingCompany?: string;
     productList: IProduct[];
 }
 
@@ -64,9 +64,9 @@ export interface IProductPromotion {
   brand?: string;
   imgUrl?: string;
   measurementUnit ?: string;
-  supplier?: string;
-  publishDate?: Date;
-  endDate?: Date;
+  supplyingCompany?: string;
+  promotionStartDate?: Date;
+  promotionEndDate?: Date;
   unitsSold: number;
 }
 
