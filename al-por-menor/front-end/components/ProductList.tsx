@@ -38,51 +38,51 @@ const filteredProducts = products.filter((product: IProductPromotion) => {
 
 
   return (
-    <div className='product-list'>
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="sr-only">Products</h2>
+<div className="bg-white">
+  <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <h2 className="sr-only">Products</h2>
 
-          <div>
-            <label htmlFor="category" className="mr-2">Category:</label>
-            <select
-              id="category"
-              value={selectedCategory}
-              onChange={handleCategoryChange}
-            >
-              <option value="">All</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-          <div className="flex justify-between mb-6">
-          <div className='search-bar'>
-          <IconButton>
-              <SearchIcon />
-            </IconButton>
-            <TextField
-              id="search"
-              label="Buscar..."
-              variant="outlined"
-              size="small"
-              value={searchTerm}
-              onChange={handleSearch}
-            />
-          </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {filteredProducts.map((product: IProductPromotion, index: any) => (
-              <Product key={index} product={product} />
-            ))}
-          </div>
-        </div>
+    <div className="categories-search-container">
+      <div className="categorias">
+        <select
+          id="category"
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+        >
+          <option value="">Todas las categorías</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
       </div>
+
+      <div className="search-bar">
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+        <TextField
+          id="search"
+          label="Buscar..."
+          variant="outlined"
+          size="small"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+      </div>
+    </div>
+
+    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      {filteredProducts.map((product: IProductPromotion, index: any) => (
+        <Product key={index} product={product} />
+      ))}
+    </div>
+  </div>
+</div>
+
+
 
   );
 }

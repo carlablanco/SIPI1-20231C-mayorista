@@ -39,12 +39,22 @@
     font-weight: bold;
 }
 
-.search-container {
+.categories-search-container {
     display: flex;
+    justify-content: left;
     align-items: center;
-    width: 300px; /* Adjust the width as needed */
+    margin-top: 20px; /* Adjust the top separation as desired */
+  margin-bottom: 20px; /* Adjust the bottom separation as desired */
   }
   
-  .MuiOutlinedInput-input {
-    padding-left: 30px; /* Adjust the padding as needed */
-  }
+
+.categorias {
+  margin-right: 10px; /* Adjust the spacing as desired */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+    
