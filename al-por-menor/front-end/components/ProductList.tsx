@@ -3,7 +3,6 @@ import { Product } from './Product'
 import '../app/(subscriptions)/subscription-list/SubscriptionStyles.css'
 import { IProductPromotion } from '@/types/responses'
 import { products } from '../mock/mockdata'
-import Link from 'next/link';
 
 
 export function ProductList(this: any) {
