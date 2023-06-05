@@ -31,5 +31,6 @@ Antes de ejecutar el programa, correr el comando `npm install` para instalar las
 * Se debe correr el comando `npm install` para instalar las dependencias.
 * Para correr las migraciones, debemos tener instalado la CLI de Sequelize: `npm install --save-dev sequelize-cli`.
 * Luego, correr el comando `npx sequelize-cli db:migrate` para ejecutar las migraciones.
+* Para correr las seeds: `npx sequelize-cli db:seed:all`.
 * Podemos correr el proyecto con `nodemon` (recomendado) o `node index.js`.
 * Para instalar nodemon: `npm install nodemon --save-dev`.
