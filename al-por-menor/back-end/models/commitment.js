@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Commitment.belongsTo(models.User, {
         foreignKey: 'userId'
       });
-      Commitment.hasOne(models.Product, {
+      Commitment.belongsTo(models.Product, {
         foreignKey: 'productId'
       });
     }
