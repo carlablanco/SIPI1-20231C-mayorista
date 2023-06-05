@@ -1,5 +1,17 @@
 const productService = require('../services/product.service');
 
+async function getAllProducts(req, res, next) {
+    // const { productId } = req.params;
+
+    try {
+        const products = await productService.getAllProducts();
+        res.json(products);
+    } catch (error) {
+        console.error('Error retrieving product:', error);
+        next(error);
+    }
+}
+
 async function getProduct(req, res, next) {
     const { productId } = req.params;
 
@@ -54,4 +66,5 @@ module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
+    getAllProducts,
 };

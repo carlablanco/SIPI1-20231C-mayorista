@@ -1,5 +1,15 @@
 const { Product } = require('../models');
 
+async function getAllProducts() {
+    try {
+        const products = await Product.findAll();
+
+        return products;
+    } catch (error) {
+        console.error('Error retrieving product:', error);
+        throw error;
+    }
+}
 
 async function getProduct(productId) {
     try {
@@ -50,4 +60,5 @@ module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
+    getAllProducts,
 };
