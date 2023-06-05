@@ -4,6 +4,7 @@
     justify-content: space-around;
     margin: 0 auto;
     width: 100vw;
+    margin-right: 150px;
     max-width: 1200px;
   }
   
@@ -40,7 +41,7 @@
   }
 
   .profile-details {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 4px;
     margin-top: 20px;
@@ -53,14 +54,160 @@
   .footer {
     margin-top: 2cm;
   }
-
+  /* Barra de costado */
   .MuiDrawer-paperAnchorDockedLeft {
     min-width: 19vw;
-    height: 24vh;
-    top: 34vh;
+    height: 40vh;
+    top: 15vh;
     border-right: none;
-    left: 21vw;
-  }	
+    left: 0vw;
+    
+  }
+
+  .Guardar {
+    background-color: #0070F4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancelar {
+    background-color: #0070F4;
+    color: white;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos adicionales o modificaciones según tus necesidades */
+  .Guardar:hover,
+  .Guardar:focus {
+    background-color: #0070F4;
+  }
+  
+  .cancelar:hover,
+  .cancelar:focus {
+    background-color: #0070F4;
+  }
+
+  .Guardar-Cancelar-container {
+    display: flex;
+    margin-top: 30px;
+    gap: 17px;
+    margin-left: -85px;
+  }
+
+  .Modificar {
+    background-color: #0070F4;
+    color: white;
+    margin-top: 30px;
+    margin-left: -93px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .Modificar:hover,
+  .Modificar:focus {
+    background-color: #0070F4;
+  }
+
+  /* Mis Tarjetas de pago */
+
+  /* Estilos para los botones */
+
+  .MetodosDePagos-Container {
+    /* Estilos para el contenedor principal */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100vw;
+    margin-left: 100px;
+    max-width: 900px;
+  }
+  .titulo {
+    display: flex;
+    width: 100vw;
+
+  }
+  
+  .alias-tarjeta {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .nombre-titular {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .numero-tarjeta {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .fecha-vencimiento {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  
+  .cvv {
+    margin-top: 20px;
+  }
+  
+  .agregar-Tarjeta {
+    font-size: 16px;
+    background-color: #0070F4;
+    color: white;
+    width: 230px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .Metodo-de-Pago {
+    font-size: 17px;
+    margin-top: 30px;
+    margin-left: 1px;
+    margin-right: 70px;
+  }
+  
+  .Eliminar-Pago {
+    /* Estilos para el botón Eliminar */
+    font-size: 17px;
+    background-color: #0070F4;
+    color: white;
+    padding: 7px 20px;
+    margin-top: 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modificar-Pago {
+    /* Estilos para el botón Modificar */
+    font-size: 17px;
+    background-color: #0070F4;
+    color: white;
+    padding: 7px 20px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+
+
+
+
 
 
   
