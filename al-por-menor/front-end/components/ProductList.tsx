@@ -15,9 +15,26 @@ export function ProductList(this: any) {
     setSearchTerm(event.target.value);
   };
 
-  const filteredProducts = products.filter((product: IProductPromotion) =>
-  product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())
-);
+const categories = Array.from(new Set(products.map((product) => product.category)));
+
+const [selectedCategory, setSelectedCategory] = useState('');
+
+const handleCategoryChange = (event: React.ChangeEvent<{ value: string }>) => {
+  setSelectedCategory(event.target.value);
+};
+
+const filteredProducts = products.filter((product: IProductPromotion) => {
+  const matchesSearchTerm = product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+  if (!selectedCategory || selectedCategory === '') {
+    // If no category is selected, only apply search filter
+    return matchesSearchTerm;
+  } else {
+    // Apply both category and search filters
+    const matchesCategory = product.category === selectedCategory;
+    return matchesCategory && matchesSearchTerm;
+  }
+});
 
 
   return (
@@ -25,6 +42,23 @@ export function ProductList(this: any) {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
+
+          <div>
+            <label htmlFor="category" className="mr-2">Category:</label>
+            <select
+              id="category"
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+            >
+              <option value="">All</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
 
           <div className="flex justify-between mb-6">
           <div className='search-bar'>
@@ -49,6 +83,6 @@ export function ProductList(this: any) {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
