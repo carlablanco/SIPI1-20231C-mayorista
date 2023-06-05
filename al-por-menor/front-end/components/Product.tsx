@@ -58,7 +58,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
   useEffect(() => {
     getCurrentPrice(product.priceList);
     setInterval(() => {
-      setRemainingTime(getDateDifference(product.endDate));
+      setRemainingTime(getDateDifference(product.promotionEndDate));
     }, 1000);
   }, [unitsSold]);
 
