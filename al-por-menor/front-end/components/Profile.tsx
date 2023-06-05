@@ -1,8 +1,5 @@
 "use client";
-import { Cadence } from "@/enums/enums";
-import { ISubscription } from "@/types/responses";
 import React, { useState } from "react";
-import SubscriptionComponent from "./UserSubscription";
 import '../app/(profile)/profile/ProfileStyles.css';
 import TextField from '@mui/material/TextField';
 
