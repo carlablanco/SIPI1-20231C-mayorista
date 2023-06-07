@@ -11,6 +11,9 @@ Desarrollado por:
 * Moura, Pedro L.U. 1123499
 * Sena, Federico L.U. 1112998
 
+Pedro Moura (pmoura@uade.edu.ar)
+Legajo 1123499
+
 Año 2023, 1er Cuatrimestre
 
 # Dependencias
