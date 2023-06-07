@@ -168,38 +168,44 @@ const PaymentMethodMenu = () => {
           <button className='agregar-Tarjeta' onClick={handleAddPaymentMethod}>Agregar Método de Pago</button>
         </div>
       </div>
-  
-      {paymentMethods.map((paymentMethod) => (
-        <div key={paymentMethod.id} className='Metodo-de-Pago'>
-          <div className="payment-info">
-          <h3>Métodos de Pago:</h3>
-            <div>
-              <span>Alias de la Tarjeta: </span>
-              <span>{paymentMethod.cardAlias}</span>
-            </div>
-            <div>
-              <span>Nombre que figura en la Tarjeta: </span>
-              <span>{paymentMethod.cardHolderName}</span>
-            </div>
-            <div>
-              <span>Número de Tarjeta: </span>
-              <span>{paymentMethod.cardNumber}</span>
-            </div>
-            <div>
-              <span>Fecha de Vencimiento: </span>
-              <span>{paymentMethod.expirationDate}</span>
-            </div>
-            <div>
-              <span>CVV: </span>
-              <span>{paymentMethod.CVV}</span>
-            </div>
-          </div>
-          <div className="payment-actions">
-            <button className='Eliminar-Pago' onClick={() => handleDeletePaymentMethod(paymentMethod.id)}>Eliminar</button>
-            <button className='modificar-Pago' onClick={() => handleModifyPaymentMethod(paymentMethod.id, paymentMethod)}>Modificar</button>
-          </div>
-        </div>
-      ))}
+
+      <div className='pagos-container'>
+        <h3>Métodos de Pago:</h3>
+       <div className='pagos-map'>
+         {paymentMethods.map((paymentMethod) => (
+           <div key={paymentMethod.id} className='Metodo-de-Pago'>
+             
+             <div className="payment-info">
+             
+               <div>
+                 <span>Alias de la Tarjeta: </span>
+                 <span>{paymentMethod.cardAlias}</span>
+               </div>
+               <div>
+                 <span>Nombre que figura en la Tarjeta: </span>
+                 <span>{paymentMethod.cardHolderName}</span>
+               </div>
+               <div>
+                 <span>Número de Tarjeta: </span>
+                 <span>{paymentMethod.cardNumber}</span>
+               </div>
+               <div>
+                 <span>Fecha de Vencimiento: </span>
+                 <span>{paymentMethod.expirationDate}</span>
+               </div>
+               <div>
+                 <span>CVV: </span>
+                 <span>{paymentMethod.CVV}</span>
+               </div>
+             </div>
+             <div className="payment-actions">
+               <button className='Eliminar-Pago' onClick={() => handleDeletePaymentMethod(paymentMethod.id)}>Eliminar</button>
+               <button className='modificar-Pago' onClick={() => handleModifyPaymentMethod(paymentMethod.id, paymentMethod)}>Modificar</button>
+             </div>
+           </div>
+         ))}
+       </div>
+      </div>
     </div>
   );  
 }
