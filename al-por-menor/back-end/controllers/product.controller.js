@@ -1,5 +1,17 @@
 const productService = require('../services/product.service');
 
+async function getAllProducts(req, res, next) {
+    // const { productId } = req.params;
+
+    try {
+        const products = await productService.getAllProducts();
+        res.json(products);
+    } catch (error) {
+        console.error('Error retrieving product:', error);
+        next(error);
+    }
+}
+
 async function getProduct(req, res, next) {
     const { productId } = req.params;
 
@@ -13,10 +25,10 @@ async function getProduct(req, res, next) {
 }
 
 async function createProduct(req, res, next) {
-    const { name, description, measurementUnit, brand, supplyingCompany, category, price, imgUrl } = req.body;
+    const { name, description, measurementUnit, brand, supplyingCompany, category, imgUrl } = req.body;
 
     try {
-        const product = await productService.createProduct({ name, description, measurementUnit, brand, supplyingCompany, category, price, imgUrl });
+        const product = await productService.createProduct({ name, description, measurementUnit, brand, supplyingCompany, category, imgUrl });
         res.status(201).json(product);
     } catch (error) {
         console.error('Error creating product:', error);
@@ -26,10 +38,10 @@ async function createProduct(req, res, next) {
 
 async function updateProduct(req, res, next) {
     const { productId } = req.params;
-    const { name, description, measurementUnit, brand, supplyingCompany, category, price, imgUrl } = req.body;
+    const { name, description, measurementUnit, brand, supplyingCompany, category, imgUrl } = req.body;
 
     try {
-        const product = await productService.updateProduct(productId, { name, description, measurementUnit, brand, supplyingCompany, category, price, imgUrl });
+        const product = await productService.updateProduct(productId, { name, description, measurementUnit, brand, supplyingCompany, category, imgUrl });
         res.json(product);
     } catch (error) {
         console.error('Error updating product:', error);
@@ -54,4 +66,5 @@ module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
+    getAllProducts,
 };
