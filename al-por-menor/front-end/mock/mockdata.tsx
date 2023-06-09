@@ -8,13 +8,13 @@ const addDays = (days: any) => {
 export const users = [
     {
         id: 1,
-      name: 'Juan',
-      lastName: 'Pérez',
-      email: 'juan@example.com',
-      password: 'contraseña123',
+      name: 'admin',
+      lastName: '',
+      email: 'admin@example.com',
+      password: '123',
       optCode: 1234,
       optExpiration: '2023-06-30',
-      isAdmin: false,
+      isAdmin: true,
     },
     {
         id:2,
@@ -26,6 +26,17 @@ export const users = [
       optExpiration: '2023-06-30',
       isAdmin: false,
     },
+    {
+        id:3,
+      name: 'Juan',
+      lastName: 'Pérez',
+      email: 'juan@example.com',
+      password: 'contraseña123',
+      optCode: 9128,
+      optExpiration: '2023-06-30',
+      isAdmin: false,
+    },
+
     // Add more user objects as needed
   ];
   

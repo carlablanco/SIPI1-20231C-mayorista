@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
         <UserProvider>
           <div className="Simpleflex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-            <Header />
             {children}
           </div>
         </UserProvider>
