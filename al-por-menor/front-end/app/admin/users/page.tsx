@@ -22,7 +22,7 @@ export default function UsersPage() {
         {users.length > 0 && users.map(user => (
           <tr key={user.id} className="user-list" data-aos="fade-down">
             <td className="user_id">#{user.id}</td>
-            <td className="user_name">{user.name}</td>
+            <td className="user_name">{user.name} {user.lastName}</td>
             <td className={user.isAdmin? 'admin' : 'not-admin'}>Admin</td>
             <td className="btns-container">
                 <button className="btn-default btn-users">

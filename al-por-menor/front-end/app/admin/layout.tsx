@@ -24,26 +24,27 @@ export default function RootLayout({
   const { logged ,user} = useContext(UserContext)
 
 
-  // useEffect(() => {
-  //   // Check if user is logged in
-  //   if (logged){
-  //     // If yes, check if user is admin
-  //     if (user.admin){
-  //       // If yes, proceed
-  //     }
-  //     else {
-  //       // If not, redirect to home page
-  //       swal('No tienes permisos para acceder a esta pagina', 'Por favor inicia sesion como administrador', 'error')
-  //       router.push('/');
-  //     }
+  useEffect(() => {
+    // Check if user is logged in
+    if (logged){
+      // If yes, check if user is admin
+      if (user.isAdmin){
+        // If yes, proceed
+      }
+      else {
+        // If not, redirect to home page
+        swal('No tienes permisos para acceder a esta pagina', 'Por favor inicia sesion como administrador', 'error')
+        router.push('/');
+      }
 
-  //   }
-  //   // If not, redirect to login page
-  //   else {
-  //       swal('No tienes permisos para acceder a esta pagina', 'Por favor inicia sesion como administrador', 'error')
-  //       router.push('/');
-  //   }
-  // }, []);
+    }
+    // If not, redirect to login page
+    else {
+        swal('No tienes permisos para acceder a esta pagina', 'Por favor inicia sesion como administrador', 'error')
+        router.push('/');
+    }
+  }, []);
+
 
 
 
