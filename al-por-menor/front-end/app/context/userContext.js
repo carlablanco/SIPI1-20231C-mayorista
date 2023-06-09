@@ -1,9 +1,14 @@
 'use client'
 import { createContext , useContext , useState} from 'react';
+import { users } from '@/mock/mockdata'
+import {useRouter} from 'next/navigation';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({children}) => {
+
+
+    const router = useRouter();
 
 
     const [user, setUser] = useState({});
@@ -12,8 +17,7 @@ export const UserProvider = ({children}) => {
     
 
     const login = (user) => {
-        setUser(user);
-        setLogged(true);
+        authUser(user);
     }
 
     const logout = () => {
@@ -22,7 +26,28 @@ export const UserProvider = ({children}) => {
     }
 
 
-    return <UserContext.Provider value={{user, logged, login, logout}}>
+        // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
+            // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
+                // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
+
+    const authUser = (userData) => {
+        console.log(userData)
+        users.forEach(u => {
+            if (u.email == userData.email && u.password == userData.password) {
+                console.log(u)
+                setUser(u);
+                console.log(user)                
+                setLogged(true);
+                router.push('/')
+            }
+        })
+
+    }
+
+
+
+
+    return <UserContext.Provider value={{user, logged, login, logout, authUser}}>
         {children}
     </UserContext.Provider>
 }
