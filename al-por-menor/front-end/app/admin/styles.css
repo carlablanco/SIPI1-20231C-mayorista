@@ -107,13 +107,14 @@
 .btn-default {
     display: flex;
     padding: .5em 1em;
-    background-color: #376cff;
+    background-color: #0070F4;
     color: #f2f2f2;
     border-radius: 5px;
 }
 
 .btn-red {
     display: flex;
+    width: fit-content;
     padding: .5em 1em;
     background-color: #fa4c4c;
     color: #f2f2f2;
