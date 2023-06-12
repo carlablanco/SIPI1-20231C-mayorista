@@ -5,7 +5,6 @@ import Sub from '@/components/sub'
 import Footer from '@/components/ui/footer'
 import { IProductPromotion } from '@/types/responses'
 import { NextPage } from 'next'
-import { UserContext } from '@/app/context/userContext'
 import { products } from '@/mock/mockdata'
 import { useRouter } from 'next/navigation'
 

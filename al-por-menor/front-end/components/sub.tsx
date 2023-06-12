@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../app/product/[id]/styles.css'
 import {IProductPromotion } from '@/types/responses'
 import Link from 'next/link'
@@ -8,6 +8,8 @@ import UnitsSelector from './UnitsSelector'
 import ProgressBar from './ProgressBar'
 import { getDateDifference } from '@/app/helpers/date.helper'
 import { products } from '@/mock/mockdata'
+import swal from 'sweetalert'
+import { Context } from '@/app/context/Context'
 
 
 interface ProductProps {
@@ -31,6 +33,8 @@ const defautProduct: IProductPromotion = {
 
 
 export const Sub: React.FC<ProductProps> = ({id}) => {
+
+    const {addItemToCart} = useContext(Context);
 
     const product = products.find((product) => product.productId === id) || defautProduct;
     const originalUnitsSold = product.unitsSold;
@@ -76,6 +80,18 @@ export const Sub: React.FC<ProductProps> = ({id}) => {
     useEffect(() => {
         getCurrentPrice(product.priceList);
     }, [unitsSold]);
+
+
+    function handleAddItemToCart(product:any) {
+        if (selectedUnit === 0) {
+        swal("Debes seleccionar al menos una unidad","","warning")
+        return
+        }
+        else {
+        addItemToCart(product, selectedUnit)
+        }
+    }
+
 
     return (
         <div className='sub-container'>
@@ -135,7 +151,7 @@ export const Sub: React.FC<ProductProps> = ({id}) => {
                                 </div>
                                 {progress < 100 ? <h3 className="mt-4 text-medium text-gray-700">¡Quedan {unitsNeeded}u. para que baje el precio!</h3> : null}
                                 <ProgressBar progress={progress} />
-                                <Link href={"/pago-envio"} className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</Link>
+                                <button onClick={() => handleAddItemToCart(product)} className="btn-sub mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</button>
                             </div>
                         </div>
                     </div>
