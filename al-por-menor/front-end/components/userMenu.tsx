@@ -3,12 +3,12 @@ import img from '../public/images/defaultUserImg.png'
 import Image from 'next/image'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import { UserContext } from '@/app/context/userContext'
 import SettingsIcon from '@mui/icons-material/Settings';
+import { Context } from '@/app/context/Context'
 
 export default function UserMenu() {
 
-    const {logout, user} = useContext(UserContext)
+    const {logout, user} = useContext(Context)
 
     function classNames(...classes :any) {
         return classes.filter(Boolean).join(' ')

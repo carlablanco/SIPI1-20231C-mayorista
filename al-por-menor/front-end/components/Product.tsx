@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '../app/(products)/products-list/ProductsStyles.css'
 import Link from 'next/link'
 import { IProductPromotion } from '@/types/responses'
@@ -10,6 +10,8 @@ import { getDateDifference } from '@/app/helpers/date.helper'
 import UnitsSelector from './UnitsSelector'
 import InfoIcon from '@mui/icons-material/Info';
 import RemainingTime from './RemainingTime'
+import swal from 'sweetalert'
+import { Context } from '@/app/context/Context'
 
 interface ProductProps {
   product: IProductPromotion
@@ -17,6 +19,8 @@ interface ProductProps {
 
 
 export const Product: React.FC<ProductProps> = ({product}) => {
+
+  const { addItemToCart } = useContext(Context);
 
   const originalUnitsSold = product.unitsSold;
 
@@ -67,12 +71,24 @@ export const Product: React.FC<ProductProps> = ({product}) => {
 
   const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
+
+  function handleAddItemToCart(product:any) {
+    if (selectedUnit === 0) {
+      swal("Debes seleccionar al menos una unidad","","warning")
+      return
+    }
+    else {
+      addItemToCart(product, selectedUnit)
+    }
+  }
+  
+
   return (
-    <Link href={{
-      pathname: `product/${product.productId}`,
-      query: { productId: product.productId },
-      }} className="group" key={product.productId} data-aos="zoom-y-out">
-        <div className='product-info'>
+    <div className="group" key={product.productId} data-aos="zoom-y-out">
+        <Link href={{
+          pathname: `product/${product.productId}`,
+          query: { productId: product.productId },
+          }} className='product-info'>
           <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
             <img src={product.imgUrl} alt="" className="h-full w-full object-cover object-center group-hover:opacity-75"/>
           </div>
@@ -93,8 +109,8 @@ export const Product: React.FC<ProductProps> = ({product}) => {
           </div>
           {progress < 100 ? <h3 className="mt-4 text-medium text-gray-700">¡Quedan {unitsNeeded}u. para que baje el precio!</h3> : null}
           <ProgressBar progress={progress}/>
-        </div>
-        <button className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
-    </Link>
+        </Link>
+        <button onClick={() => handleAddItemToCart(product)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
+    </div>
   )
 }

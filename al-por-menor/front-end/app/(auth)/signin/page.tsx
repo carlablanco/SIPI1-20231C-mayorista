@@ -4,14 +4,14 @@ export const metadata = {
 }
 'use client'
 
-import { UserContext } from '@/app/context/userContext'
+import { Context } from '@/app/context/Context'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 
 
 export default function SignIn() {
 
-  const {login,authUser} = useContext(UserContext)
+  const {login,authUser} = useContext(Context)
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
