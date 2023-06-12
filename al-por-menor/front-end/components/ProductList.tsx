@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { Product } from './Product';
-import '../app/(subscriptions)/subscription-list/SubscriptionStyles.css';
+import '../app/(products)/products-list/ProductsStyles.css';
 import { IProductPromotion } from '@/types/responses';
 import { products } from '../mock/mockdata';
 import IconButton from '@mui/material/IconButton';

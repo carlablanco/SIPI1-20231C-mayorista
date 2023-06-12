@@ -6,26 +6,59 @@ import MobileMenu from './mobile-menu';
 import UserMenu from '../userMenu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { UserContext } from '@/app/context/userContext';
+import RemainingTime from '../RemainingTime';
+import { calculateNextDay, getDateDifference } from '@/app/helpers/date.helper';
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
   const { logged } = useContext(UserContext);
   const [showCart, setShowCart] = useState<boolean>(false);
+  const [remainingTime, setRemainingTime] = useState<any>(null);
 
   useEffect(() => {
+
+    const calculateRemainingTime = () => {
+      const difference = calculateNextDayDifference();
+      setRemainingTime(difference);
+    };
+
+    const timer = setInterval(calculateRemainingTime, 1000);
+
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };
 
     scrollHandler();
     window.addEventListener('scroll', scrollHandler);
-    return () => window.removeEventListener('scroll', scrollHandler);
+
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler)
+      clearInterval(timer);
+    };
   }, []);
+
+  const calculateNextDayDifference = (): { days: number, hours: number, minutes: number, seconds: number } => {
+    const nextDay = calculateNextDay();
+    const currentDate = new Date();
+
+    // Set the time of the next day to the current time
+    nextDay.setHours(currentDate.getHours());
+    nextDay.setMinutes(currentDate.getMinutes());
+    nextDay.setSeconds(currentDate.getSeconds());
+
+    const timeDifference = nextDay.getTime() - currentDate.getTime();
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    return { days, hours: hours % 24, minutes: minutes % 60, seconds: seconds % 60 };
+  };
 
   const toggleCart = () => {
     setShowCart((prevState) => !prevState);
   };
-
   return (
     <header
       className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
@@ -37,7 +70,9 @@ export default function Header() {
           <div className="shrink-0 mr-4">
             <Logo />
           </div>
-
+          <div className='shrink-0 mr-4'>
+            <RemainingTime remainingTime={remainingTime}/>
+          </div>
           <nav className="hidden md:flex md:grow">
             {!logged ? (
               <ul className="flex grow justify-end flex-wrap items-center">
