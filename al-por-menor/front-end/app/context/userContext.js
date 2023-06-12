@@ -2,6 +2,8 @@
 import { createContext , useContext , useState} from 'react';
 import { users } from '@/mock/mockdata'
 import {useRouter} from 'next/navigation';
+import { products } from '@/mock/mockdata';
+
 
 export const UserContext = createContext();
 
@@ -14,7 +16,10 @@ export const UserProvider = ({children}) => {
     const [user, setUser] = useState({});
 
     const [logged , setLogged] = useState(false);
-    
+
+    const [product, setProduct] = useState({});
+
+    const [fetchedProducts, setProducts] = useState([]);
 
     const login = (user) => {
         authUser(user);
@@ -23,6 +28,10 @@ export const UserProvider = ({children}) => {
     const logout = () => {
         setUser({});
         setLogged(false);
+    }
+    
+    const selectProduct = (product) => {
+        setProduct(product);
     }
 
 
@@ -44,10 +53,19 @@ export const UserProvider = ({children}) => {
 
     }
 
+    const getProduct = (id) => {
+        fetchedProducts.forEach(p => {
+            if (p.id == id) {
+                setProduct(p);
+            }
+        })
+    }
 
 
 
-    return <UserContext.Provider value={{user, logged, login, logout, authUser}}>
+
+
+    return <UserContext.Provider value={{user, logged, product, login, logout, authUser, getProduct, selectProduct}}>
         {children}
     </UserContext.Provider>
 }
