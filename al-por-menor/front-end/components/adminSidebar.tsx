@@ -11,11 +11,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import HomeIcon from '@mui/icons-material/Home';
 import Link from 'next/link';
-import { UserContext } from '@/app/context/userContext';
+import { Context } from '@/app/context/context';
 
 const AdminSidebar = () => {
 
-  const {logout} = useContext(UserContext)
+  const {logout} = useContext(Context)
   
   const [selectedOption, setSelectedOption] = useState('Mis datos');
 

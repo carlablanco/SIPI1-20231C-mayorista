@@ -5,11 +5,11 @@ import Logo from './logo';
 import MobileMenu from './mobile-menu';
 import UserMenu from '../userMenu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { UserContext } from '@/app/context/userContext';
+import { Context } from '@/app/context/context';
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
-  const { logged } = useContext(UserContext);
+  const { logged ,cartItems} = useContext(Context);
   const [showCart, setShowCart] = useState<boolean>(false);
 
   useEffect(() => {
@@ -71,12 +71,15 @@ export default function Header() {
             ) : (
               <ul className="flex grow justify-end flex-wrap items-center">
                 <li>
-                  <button
-                    className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
-                    onClick={toggleCart}
-                  >
-                    <ShoppingCartIcon />
-                  </button>
+                <Link href={'/cart'}>
+                    <button
+                      className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+                      onClick={toggleCart}
+                    >
+                      <ShoppingCartIcon />
+                      {cartItems.length > 0 ? <span className='ml-2'>{cartItems.length}</span> : ''}
+                    </button>
+                </Link>
                 </li>
                 <li>
                   <UserMenu />

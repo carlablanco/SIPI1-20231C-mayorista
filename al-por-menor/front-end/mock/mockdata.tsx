@@ -42,7 +42,7 @@ export const users = [
   
   export const products =  [
     {
-        productId: '1',
+        productId: 1,
       name: 'Manzanas',
       description: 'Manzanas frescas y jugosas',
       measurementUnit: 'Kg',
@@ -60,7 +60,7 @@ export const users = [
       imgUrl: 'https://parade.com/.image/t_share/MTkwNTgxNDY1MzcxMTkxMTY0/different-types-of-apples-jpg.jpg',
     },
     {
-        productId: '2',
+        productId: 2,
       name: 'Pan',
       description: 'Pan integral de trigo',
       measurementUnit: 'Unidad',
@@ -78,7 +78,7 @@ export const users = [
       imgUrl: 'https://i.imgur.com/KUuRtTc.jpeg',
     },
     {
-        productId: '3',
+        productId: 3,
       name: 'Leche',
       description: 'Leche fresca',
       measurementUnit: 'Unidad',
@@ -96,7 +96,7 @@ export const users = [
       imgUrl: 'https://t3.ftcdn.net/jpg/04/91/38/72/360_F_491387258_NDctlpVMBvUNazcVsj8d0xAFe5uP2Idy.jpg',
     },
     {
-        productId: '4',
+        productId: 4,
       name: 'Maple 12 huevos',
       description: 'Huevos frescos blancos',
       measurementUnit: 'Unidad',
@@ -114,7 +114,7 @@ export const users = [
       imgUrl: 'https://images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-eggs-1296x728-feature.jpg',
     },
     {
-        productId: '5',
+        productId: 5,
       name: 'Pollo',
       description: 'Pechuga de pollo',
       measurementUnit: 'Kg',
@@ -132,7 +132,7 @@ export const users = [
       imgUrl: 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/10/Roast-Chicken-main.jpg',
     },
     {
-        productId: '6',
+        productId: 6,
       name: 'Arroz',
       description: 'Arroz blanco',
       measurementUnit: 'Unidad',
@@ -150,7 +150,7 @@ export const users = [
       imgUrl: 'https://www.onceuponachef.com/images/2014/10/jasmine-rice-1.jpg',
     },
     {
-        productId: '7',
+        productId: 7,
       name: 'Tomates',
       description: 'Tomates rojos frescos de huerta orgánica',
       measurementUnit: 'Kg',
@@ -168,7 +168,7 @@ export const users = [
       imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tomato_je.jpg/1200px-Tomato_je.jpg',
     },
     {
-        productId: '8',
+        productId: 8,
       name: 'Bananas',
       description: 'Bananas del ecuador',
       measurementUnit: 'Kg',
@@ -186,7 +186,7 @@ export const users = [
       imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Bananas.jpg',
     },
     {
-        productId: '9',
+        productId: 9,
       name: 'Queso cheddar',
       description: 'Queso cheddar en barra',
       measurementUnit: 'Kg',
@@ -204,7 +204,7 @@ export const users = [
       imgUrl: 'https://www.tasteofhome.com/wp-content/uploads/2022/09/GettyImages-470340853.jpg',
     },
     {
-        productId: '10',
+      productId: 10,
       name: 'Spaghettis',
       description: 'Pasta spaghetti al bronce',
       measurementUnit: 'Unidad',
@@ -228,7 +228,7 @@ export const users = [
  
   [
     {
-      productId: '1',
+      productId: 1,
       name: 'Yerba Mate Taragüi',
       description: 'El sabor característico de Yerba Mate Taragüi. ',
       category: 'Alacena',
@@ -246,7 +246,7 @@ export const users = [
       unitsSold: 50,
     },
     {
-      productId: '2',
+      productId: 2,
       name: 'Dulce de Leche La Serenísima',
       description: 'Exquisito dulce de leche argentino de la marca La Serenísima. El producto ideal para rellenos de tortas, tartas, muffins, alfajores, piononos y muchos más. También podes usarlo para decorar tus recetas dulces.',
       category: 'Lácteos',

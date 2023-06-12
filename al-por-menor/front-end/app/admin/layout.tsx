@@ -1,9 +1,9 @@
 'use client'
 import AdminSidebar from '@/components/adminSidebar';
 import { useContext, useEffect } from 'react';
-import { UserContext } from '../context/userContext';
 import swal from 'sweetalert';
 import { useRouter } from 'next/navigation';
+import { Context } from '../context/context';
 
 
 export const metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 
   const router = useRouter()
 
-  const { logged ,user} = useContext(UserContext)
+  const { logged ,user} = useContext(Context)
 
 
   useEffect(() => {
