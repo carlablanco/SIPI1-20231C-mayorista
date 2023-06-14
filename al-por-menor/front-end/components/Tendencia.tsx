@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 
 interface Product {
   name: string;
@@ -14,26 +14,14 @@ interface TendenciaProps {
 }
 
 const Tendencia: React.FC<TendenciaProps> = ({ products }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slidesToShow = 3;
-
-  const handlePrev = () => {
-    setCurrentSlide((prevSlide) => prevSlide - 1);
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prevSlide) => prevSlide + 1);
-  };
-
-  const currentProducts = products.slice(currentSlide, currentSlide + slidesToShow);
-
   const containerStyle: React.CSSProperties = {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: '20px',
     overflow: 'hidden',
     position: 'relative',
+    width: '80%', // Reducción del tamaño del container en un 20%
+    margin: '0 auto', // Centrar el container horizontalmente
   };
 
   const itemStyle: React.CSSProperties = {
@@ -43,22 +31,9 @@ const Tendencia: React.FC<TendenciaProps> = ({ products }) => {
     boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
     position: 'relative',
     textAlign: 'center',
-    width: '30%',
-    marginRight: '20px',
-  };
-
-  const firstItemStyle: React.CSSProperties = {
-    ...itemStyle,
-    borderTopLeftRadius: '0',
-    borderBottomLeftRadius: '0',
-    marginLeft: '20px',
-  };
-
-  const lastItemStyle: React.CSSProperties = {
-    ...itemStyle,
-    borderTopRightRadius: '0',
-    borderBottomRightRadius: '0',
-    marginRight: '20px',
+    width: '23%', // Reducción del tamaño de los productos y añadir un producto más
+    marginRight: '10px',
+    transition: 'transform 0.3s ease',
   };
 
   const imageContainerStyle: React.CSSProperties = {
@@ -130,56 +105,39 @@ const Tendencia: React.FC<TendenciaProps> = ({ products }) => {
     fontWeight: 'bold',
   };
 
-  const arrowStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    color: '#4e86e4',
-    cursor: 'pointer',
-    justifyContent:'space-between',
-    fontSize: 'rem',
-    zIndex: 1,
-    display:'flex'
+  const handleMouseEnter = (index: number) => {
+    const container = document.getElementById(`item-${index}`);
+    if (container) {
+      container.style.transform = 'scale(1.05)';
+      container.style.zIndex = '1';
+    }
   };
 
-  const subtitle = {
-    fontSize: '1rem',
-    color: '#555',
-    marginBottom: '1rem',
+  const handleMouseLeave = (index: number) => {
+    const container = document.getElementById(`item-${index}`);
+    if (container) {
+      container.style.transform = 'scale(1)';
+      container.style.zIndex = '0';
+    }
   };
-
-  const isPrevDisabled = currentSlide === 0;
-  const isNextDisabled = currentSlide + slidesToShow >= products.length;
 
   return (
     <div>
-    <div className="max-w-3xl mx-auto text-center pb-4 md:pb-8 mt-4 md:mt-8">
-    <h2 className="h2 mb-4">¡Descubre lo más popular hoy!</h2>
-    <h3 style={subtitle}>Estos productos llegaron al Por Menor, ¡comprá ya!</h3>
-    </div>
-    
+      <div className="max-w-3xl mx-auto text-center pb-4 md:pb-8 mt-4 md:mt-8">
+        <h2 className="h2 mb-4">¡Descubre lo más popular hoy!</h2>
+        <h3 style={{ fontSize: '1rem', color: '#555', marginBottom: '1rem' }}>
+          Estos productos llegaron al Por Menor, ¡comprá ya!
+        </h3>
+      </div>
+
       <div style={containerStyle}>
-        {!isPrevDisabled && (
-          <svg
-            width='100'
-            className="left-arrow"
-            style={arrowStyle}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            onClick={handlePrev}
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        )}
-        {currentProducts.map((product, index) => (
+        {products.map((product, index) => (
           <div
             key={index}
-            style={index === 0 ? firstItemStyle : index === currentProducts.length - 1 ? lastItemStyle : itemStyle}
+            style={itemStyle}
+            id={`item-${index}`}
+            onMouseEnter={() => handleMouseEnter(index)} // Pasar el índice como argumento al manejar el evento onMouseEnter
+            onMouseLeave={() => handleMouseLeave(index)} // Pasar el índice como argumento al manejar el evento onMouseLeave
           >
             <div style={imageContainerStyle}>
               <img src={product.imageUrl} alt={product.name} style={imageStyle} />
@@ -193,24 +151,6 @@ const Tendencia: React.FC<TendenciaProps> = ({ products }) => {
             <div style={trendingStyle}>Trending</div>
           </div>
         ))}
-        {!isNextDisabled && (
-          <svg
-            className="right-arrow"
-            style={arrowStyle}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            onClick={handleNext}
-            width='100'
-            display='flex'
-          >
-            <path d="M9 6l6 6-6 6" />
-          </svg>
-        )}
       </div>
     </div>
   );
