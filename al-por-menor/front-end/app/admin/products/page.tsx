@@ -12,7 +12,7 @@ export default function ProductsPage() {
     const updatedProductList = productList.filter((product) => product.productId !== productId);
     setProductList(updatedProductList);
   };
-
+  
   return (
     <div className="admin-products">
       <h1 className="products_title">Products</h1>
