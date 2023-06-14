@@ -1,17 +1,21 @@
-export const metadata = {
-  title: 'Iniciar Sesión',
-  description: 'Page description',
-}
 'use client'
 
+
+// export const metadata = {
+//   title: 'Iniciar Sesión',
+//   description: 'Page description',
+// }
+
 import { Context } from '@/app/context/Context'
+import { ILoginPayloadBody, LoginPayload } from '@/types/payloads'
+import { IResponse } from '@/types/responses'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 
 
 export default function SignIn() {
 
-  const {login,authUser} = useContext(Context)
+  const {login,authUser, apiService} = useContext(Context)
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -25,11 +29,20 @@ export default function SignIn() {
   }
 
   const iniciarSesion = () => {
-    let user = {
-      email: email,
-      password: password
-    }
-    login(user)
+    const body: ILoginPayloadBody = {email: email, password: password}
+    const payload: LoginPayload = new LoginPayload(body);
+    apiService.post<IResponse>('/login', payload)
+    .then((response: IResponse) => {
+      // Handle the response data
+      debugger
+      login(body)
+      console.log(response);
+      })
+    .catch((error: Error) => {
+      // Handle the error
+      console.error(error);
+    });
+
   }
 
   return (

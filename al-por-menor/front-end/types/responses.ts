@@ -2,7 +2,7 @@ import { Cadence } from "@/enums/enums";
 
 
 
-interface IResponse{
+export interface IResponse{
     status: number;
     message: string;
 }
