@@ -41,18 +41,19 @@ export default function Header() {
   const calculateNextDayDifference = (): { days: number, hours: number, minutes: number, seconds: number } => {
     const nextDay = calculateNextDay();
     const currentDate = new Date();
-
-    // Set the time of the next day to the current time
-    nextDay.setHours(currentDate.getHours());
-    nextDay.setMinutes(currentDate.getMinutes());
-    nextDay.setSeconds(currentDate.getSeconds());
-
+  
+    if (currentDate.getDay() === nextDay.getDay() && currentDate.getHours() >= 22) {
+      nextDay.setDate(nextDay.getDate() + 7);
+    }
+  
+    nextDay.setHours(22, 0, 0); // Set the time to 10 PM (22:00:00)
+  
     const timeDifference = nextDay.getTime() - currentDate.getTime();
     const seconds = Math.floor(timeDifference / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     const days = Math.floor(hours / 24);
-
+  
     return { days, hours: hours % 24, minutes: minutes % 60, seconds: seconds % 60 };
   };
 

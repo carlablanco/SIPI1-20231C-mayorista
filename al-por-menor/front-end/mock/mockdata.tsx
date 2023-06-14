@@ -1,13 +1,9 @@
-const addDays = (days: any) => {
-    var date = new Date();
-    date.setDate(date.getDate() + days);
-    return new Date(date);
-  }
+import { addDays } from "@/app/helpers/date.helper";
 
 // userMockData.js
 export const users = [
     {
-        id: 1,
+      id: 1,
       name: 'admin',
       lastName: '',
       email: 'admin@example.com',
@@ -17,7 +13,7 @@ export const users = [
       isAdmin: true,
     },
     {
-        id:2,
+      id:2,
       name: 'María',
       lastName: 'González',
       email: 'maria@example.com',
@@ -27,7 +23,7 @@ export const users = [
       isAdmin: false,
     },
     {
-        id:3,
+      id:3,
       name: 'Juan',
       lastName: 'Pérez',
       email: 'juan@example.com',
