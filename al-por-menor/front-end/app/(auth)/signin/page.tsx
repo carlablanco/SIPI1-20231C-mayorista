@@ -72,7 +72,7 @@ export default function SignIn() {
               </div>
               <div className="flex flex-wrap -mx-3 mt-6">
                 <div className="w-full px-3">
-                  <label className="btn text-white bg-blue-600 hover:bg-blue-700 w-full" onClick={()=> iniciarSesion()}>Iniciar Sesión</label>
+                  <label className="btn text-white bg-blue-600 hover:bg-blue-700 w-full cursor-pointer" onClick={()=> iniciarSesion()}>Iniciar Sesión</label>
                 </div>
               </div>
             </form>
