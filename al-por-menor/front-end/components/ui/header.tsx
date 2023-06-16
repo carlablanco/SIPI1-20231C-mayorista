@@ -8,6 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RemainingTime from '../RemainingTime';
 import { calculateNextDay, getDateDifference } from '@/app/helpers/date.helper';
 import { Context } from '@/app/context/Context';
+import CreditsMenu from '../creditsMenu';
 
 export default function Header() {
   const [top, setTop] = useState<boolean>(true);
@@ -105,6 +106,9 @@ export default function Header() {
               </ul>
             ) : (
               <ul className="flex grow justify-end flex-wrap items-center">
+                <li className='mr-6'>
+                  <CreditsMenu />
+                </li>
                 <li>
                   <Link href={'/cart'}>
                       <button
