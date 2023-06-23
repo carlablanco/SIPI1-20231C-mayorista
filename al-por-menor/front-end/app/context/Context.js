@@ -2,14 +2,18 @@
 import { createContext , useContext , useState} from 'react';
 import { users } from '@/mock/mockdata'
 import {useRouter} from 'next/navigation';
+import HttpRequestsService from '../services/http-requests.service';
 
-export const Context = createContext();
+export const Context = createContext(null);
 
 export const Provider = ({children}) => {
 
 
     const router = useRouter();
 
+    const baseUrl = process.env.API_URL || 'http://localhost:3001';
+
+    const apiService = new HttpRequestsService(baseUrl);
 
     const [user, setUser] = useState({});
 
@@ -25,10 +29,6 @@ export const Provider = ({children}) => {
         setLogged(false);
     }
 
-
-        // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
-            // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
-                // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
 
     const authUser = (userData) => {
         console.log(userData)
@@ -124,7 +124,7 @@ export const Provider = ({children}) => {
 
 
 
-    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart}}>
+    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart, apiService}}>
         {children}
     </Context.Provider>
 }

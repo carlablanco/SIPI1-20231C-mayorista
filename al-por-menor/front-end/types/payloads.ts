@@ -6,7 +6,7 @@ interface IPayload {
     urlParams: any;
 }
 
-interface ILoginPayloadBody {
+export interface ILoginPayloadBody {
     email: string;
     password: string;
 }
