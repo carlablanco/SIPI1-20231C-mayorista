@@ -51,6 +51,7 @@ export interface IProduct {
 }
 
 export interface IPriceList {
+  id: string;
   price: number;
   unitsNeeded: number;
 }
