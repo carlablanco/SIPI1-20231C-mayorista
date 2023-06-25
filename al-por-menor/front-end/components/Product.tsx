@@ -61,7 +61,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
     setPrice(currentPrice);
     setUnitsNeeded(currentUnitsNeeded);
     if(nextUnitsNeeded === 0) setProgress(100);
-    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded)) )) {
+    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded))) && selectedUnit > 0) {
       setProgress(((unitsSold - previousUnitsNeeded)  / (nextUnitsNeeded - previousUnitsNeeded)) * 100);
     }
     else setProgress(((unitsSold)  / nextUnitsNeeded) * 100);
@@ -87,7 +87,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
   
 
   return (
-    <div className="group product-info-container" key={product.productId} data-aos="zoom-y-out">
+    <div className="product-group product-info-container" key={product.productId} data-aos="zoom-y-out">
         <Link href={{
           pathname: `product/${product.productId}`,
           query: { productId: product.productId },
