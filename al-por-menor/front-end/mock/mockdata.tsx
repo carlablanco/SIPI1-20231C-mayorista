@@ -1,5 +1,8 @@
 import { addDays } from "@/app/helpers/date.helper";
 
+
+
+
 // userMockData.js
 export const users = [
     {
@@ -35,8 +38,12 @@ export const users = [
 
     // Add more user objects as needed
   ];
+
+
+
   
   export const products =  [
+
     {
         productId: '1',
       name: 'Manzanas',
@@ -218,6 +225,9 @@ export const users = [
       imgUrl: 'https://www.lemonblossoms.com/wp-content/uploads/2022/03/Butter-Noodles-S5-500x375.jpg',
     },
   ];
+
+
+
 
 
   // productMockData.js

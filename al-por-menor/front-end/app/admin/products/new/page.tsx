@@ -61,6 +61,7 @@ export default function NewProdPage() {
 
   };
 
+
   const inputChange = (e: any, index: number, key: string) => {
     const priceListHelper: Array<IPriceList> = [...priceList];
     priceListHelper[index][key] = e.target.value;

@@ -7,7 +7,7 @@ export default function AuthLayout({
 }) {  
   return (
     <main className="grow">
-      <Header />
+      {/* <Header /> */}
       {children}
 
     </main>
