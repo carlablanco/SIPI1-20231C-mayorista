@@ -12,11 +12,11 @@ interface RemainingTimeProps {
 export const RemainingTime: React.FC<RemainingTimeProps> = ({remainingTime}) => {
     return (
         <div>
-        { remainingTime?.days > 1 ? <h3 className="mt-1 text-lg font-medium text-gray-900"><AccessTimeIcon/> La proxima compra es en {remainingTime?.days} dias</h3> : null}
-        { remainingTime?.days === 1 ? <h3 className="mt-1 text-lg font-medium text-gray-900"><AccessTimeIcon/> La proxima compra es en {remainingTime?.days} dia</h3> : null}
-        { remainingTime?.days === 0 && remainingTime?.hours > 0 ? <h3 className="mt-1 text-lg font-medium text-gray-900"><AccessTimeIcon/> La proxima compra es en  {remainingTime?.hours} horas</h3> : null}
-        { remainingTime?.days === 0 && remainingTime?.hours === 0  ? <h3 className="mt-1 text-lg font-medium text-gray-900"><AccessTimeIcon/> La proxima compra es en  {remainingTime?.minutes} minutos y {remainingTime?.seconds} segundos</h3> : null}
-        { remainingTime?.days === 0 && remainingTime?.hours === 0 && remainingTime?.minutes === 0 && remainingTime?.seconds === 0 ? <h3 className="mt-1 text-lg font-medium text-gray-900"> Finalizó la promoción</h3> : null}
+        { remainingTime?.days > 1 ? <h3 className="mt-1 text-xl font-bold text-gray-900 fonr"><AccessTimeIcon/> La proxima compra es en {remainingTime?.days} dias</h3> : null}
+        { remainingTime?.days === 1 ? <h3 className="mt-1 text-xl font-bold text-gray-900"><AccessTimeIcon/> La proxima compra es en {remainingTime?.days} dia</h3> : null}
+        { remainingTime?.days === 0 && remainingTime?.hours > 0 ? <h3 className="mt-1 text-xl font-bold text-gray-900"><AccessTimeIcon/> La proxima compra es en  {remainingTime?.hours} horas</h3> : null}
+        { remainingTime?.days === 0 && remainingTime?.hours === 0  ? <h3 className="mt-1 text-xl font-bold text-gray-900"><AccessTimeIcon/> La proxima compra es en  {remainingTime?.minutes} minutos y {remainingTime?.seconds} segundos</h3> : null}
+        { remainingTime?.days === 0 && remainingTime?.hours === 0 && remainingTime?.minutes === 0 && remainingTime?.seconds === 0 ? <h3 className="mt-1 text-xl font-bold text-gray-900"> Finalizó la promoción</h3> : null}
         </div>
     )
 }

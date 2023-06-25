@@ -26,6 +26,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
 
   const [selectedUnit, setSelectedUnit] = useState<number>(0);
   const [unitsSold, setUnitsSold] = useState<number>(product.unitsSold);
+  const [currentPriceIndex, setCurrentPriceIndex] = useState<number>(0);
 
   const handleUnitChange = (newValue: number) => {
     setSelectedUnit(newValue);
@@ -35,12 +36,12 @@ export const Product: React.FC<ProductProps> = ({product}) => {
   const [price, setPrice] = React.useState<number>(0);
   const [unitsNeeded, setUnitsNeeded] = React.useState<number>(0);
   const [progress, setProgress] = React.useState<number>(0);
-  const [remainingTime, setRemainingTime] = React.useState<any>(null);
 
   const getCurrentPrice = (priceList: any) => {
     let currentPrice = priceList[0].price;
     let currentUnitsNeeded = priceList[0].unitsNeeded;
     let nextUnitsNeeded = 0;
+    let previousUnitsNeeded = 0;
 
     priceList.forEach((price: any) => {
       if (price.unitsNeeded <= unitsSold) {
@@ -48,24 +49,26 @@ export const Product: React.FC<ProductProps> = ({product}) => {
       }
     });
 
-    priceList.some((price: any) => {
+    priceList.some((price: any, index: any) => {
       if (price.unitsNeeded > unitsSold) {
         currentUnitsNeeded = price.unitsNeeded - unitsSold;
         nextUnitsNeeded = price.unitsNeeded;
+        previousUnitsNeeded = priceList[index - 1]?.unitsNeeded || 0;
+        setCurrentPriceIndex(index);
         return true;
       }
     });
     setPrice(currentPrice);
     setUnitsNeeded(currentUnitsNeeded);
     if(nextUnitsNeeded === 0) setProgress(100);
-    else setProgress((unitsSold / nextUnitsNeeded) * 100);
+    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded)) )) {
+      setProgress(((unitsSold - previousUnitsNeeded)  / (nextUnitsNeeded - previousUnitsNeeded)) * 100);
+    }
+    else setProgress(((unitsSold)  / nextUnitsNeeded) * 100);
   }
 
   useEffect(() => {
     getCurrentPrice(product.priceList);
-    setInterval(() => {
-      setRemainingTime(getDateDifference(product.promotionEndDate));
-    }, 1000);
   }, [unitsSold]);
 
 
@@ -97,31 +100,47 @@ export const Product: React.FC<ProductProps> = ({product}) => {
             {/* <RemainingTime remainingTime={remainingTime}/> */}
   
             
-            {price != product.priceList[0]?.price ? 
+            {price != product.priceList[0]?.price && price !== product.priceList[product.priceList?.length - 1].price ? 
             <div>
               <p className="mt-1 text-lg font-medium text-gray-900">Precio Actual: ${price}</p>
-              <p className='text-1x1  text-gray-500 precio-original'>Precio original: ${product.priceList[0]?.price}</p>
+              <p className='mt-1 text-lg font-medium text-green-900'>Precio Minimo Alcancable: ${ product.priceList[product.priceList?.length - 1].price} </p>
+              { product.priceList?.length - currentPriceIndex > 1 ? 
+              <p className="mt-1 text-lg font-medium text-green-900">¡Quedan {product.priceList?.length - currentPriceIndex} pasos para llegar al precio minimo!</p> : 
+              <p className="mt-1 text-lg font-medium text-green-900">¡Solo queda {product.priceList?.length - currentPriceIndex} paso para llegar al precio minimo!</p>
+              }
+              <p className='text-1x1  text-gray-500 precio-original'>precio original: ${product.priceList[0]?.price}</p>
             </div> 
-            : <p className='mt-1 text-lg font-medium text-gray-900'>Precio original: ${product.priceList[0]?.price}</p>
+            : 
+            progress === 100 ?
+            <div>
+              <p className='mt-1 text-lg font-medium text-green-900'>Precio Actual: ${price}</p>
+              <p className="mt-1 text-lg font-medium text-green-900">¡Precio minimo obtenido!</p>
+            </div>
+            :
+            <div>
+              <p className='mt-1 text-lg font-medium text-gray-900'>Precio Actual: ${product.priceList[0]?.price}</p>
+              <p className='mt-1 text-lg font-medium text-green-900'>Precio Minimo Alcancable: ${ product.priceList[product.priceList?.length - 1].price} </p>
+              { product.priceList?.length - currentPriceIndex > 1 ? 
+              <p className="mt-1 text-lg font-medium text-green-900">¡Quedan {product.priceList?.length - currentPriceIndex} pasos para llegar al precio minimo!</p> : 
+              <p className="mt-1 text-lg font-medium text-green-900">¡Solo queda {product.priceList?.length - currentPriceIndex} paso para llegar al precio minimo!</p>
+              }
+            </div>
             }
-            
-          
-            {progress === 100 ? <p className="mt-1 text-lg font-medium text-gray-900">¡Llegaste al precio mínimo!</p> : null}
-          </div>
-            <div onClick={preventDefault}>
+            </div>
+
+        </Link>
+        <div onClick={preventDefault}>
+        {progress < 100 ? <h3 className="mb-3 text-medium text-gray-700">¡Quedan {unitsNeeded}u. para que baje el precio!</h3> : null}
               <UnitsSelector
                 selectedUnit={selectedUnit}
                 handleUnitChange={handleUnitChange}
                 min={0}
                 max={1000 - product.unitsSold}
               />
-            </div>
+              <ProgressBar progress={progress}/>
+          <button onClick={() => handleAddItemToCart(product)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
+        </div>
 
-          {progress < 100 ? <h3 className="mt-4 text-medium text-gray-700">¡Quedan {unitsNeeded}u. para que baje el precio!</h3> : null}
-          <ProgressBar progress={progress}/>
-        </Link>
-        
-        <button onClick={() => handleAddItemToCart(product)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
     </div>
   )
 }

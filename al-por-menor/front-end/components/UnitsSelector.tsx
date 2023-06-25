@@ -33,7 +33,7 @@ const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitC
   };
 
   return (
-    <div className="w-full flex items-center">
+    <div className="w-full flex items-center mb-3">
     <div className="flex flex-grow">
       <IconButton
         aria-label="decrement"
