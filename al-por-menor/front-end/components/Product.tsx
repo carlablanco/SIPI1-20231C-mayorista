@@ -78,7 +78,7 @@ export const Product: React.FC<any> = ({product}) => {
     setPrice(currentPrice);
     setUnitsNeeded(currentUnitsNeeded);
     if(nextUnitsNeeded === 0) setProgress(100);
-    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded))) && selectedUnit > 0) {
+    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded)) )) {
       setProgress(((unitsSold - previousUnitsNeeded)  / (nextUnitsNeeded - previousUnitsNeeded)) * 100);
     }
     else setProgress(((unitsSold)  / nextUnitsNeeded) * 100);
@@ -155,7 +155,7 @@ export const Product: React.FC<any> = ({product}) => {
                 max={500 - product.unitsSold}
               />
               <ProgressBar progress={progress}/>
-          <button disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART} onClick={() => handleAddItemToCart(product)} className="button-group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
+          <button onClick={() => handleAddItemToCart(product)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
         </div>
 
     </div>
