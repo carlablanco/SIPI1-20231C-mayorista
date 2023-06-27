@@ -1,0 +1,153 @@
+.cart-main-container {
+    display: flex;
+    flex-direction: column;
+    width: 84vw;
+    padding: 6em 0;
+    margin: 0em 8vw;
+    gap: 2em;
+
+}
+
+.cart-main-container h1 {
+    font-size: 2em;
+    font-weight: bolder;
+    padding-left: 2em;
+}
+
+.cart-container {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 4em;
+    padding: 0em 4em;
+    border-left: 1px solid #b0b0b061;
+    border-right: 1px solid #b0b0b061;
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.cart-item {
+    display: flex;
+    padding: 2em 0 ;
+    border-top: 1px solid #b0b0b03c;
+    gap: 2em;
+}
+
+.cart-item img {
+    height: 150px;
+
+}
+
+.cart-item-detail {
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+    gap: .5em;
+
+}
+.cart-item button {
+    width: fit-content;
+    height: fit-content;
+    padding: .5em 1em;
+    background-color: #f0f0f0d7;
+    color: #555555;
+    border-radius: 5px;
+}
+.remove-btn {
+    margin-left: 5em;
+
+}
+
+.remove-btn:hover {
+    background-color: #fc5b5b;
+    color: #f2f2f2;
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin-left: 2em;
+}
+
+.quantity-container button:hover {
+    background-color: #e2e2e2;
+}
+
+.quantity-container h3 {
+    margin: 0 1.5em;
+}
+
+.total-container {
+    width: 40%;
+    height: 50vh;
+    background-color: rgba(237, 242, 247, 0.468);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em 0;
+}
+
+.total-container button {
+    color: #f2f2f2;
+    background-color: #376cff;
+    width: 18em;
+    border-radius: 5px;
+    height: fit-content;
+    padding: .5em 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-summary-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-detail-container {
+    display: flex;
+    flex-direction: column;
+    padding: .5em 2em;
+
+}
+
+.order-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+
+.order-label {
+    color: #636363;
+    /* font-weight: bold; */
+}
+
+.item-name {
+    color: #4d4d4d;
+    font-weight: normal;
+}
+
+.item-description {
+    color: #535353ab;
+}
+
+.item-price {
+    font-weight: bold;
+}
+
+#quant {
+    width: 6em;
+    height: 2em;
+    border: 1px solid #b0b0b061;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    
+}

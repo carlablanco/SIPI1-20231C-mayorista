@@ -3,11 +3,12 @@ import img from '../public/images/defaultUserImg.png'
 import Image from 'next/image'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import { UserContext } from '@/app/context/userContext'
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Context } from '@/app/context/Context'
 
 export default function UserMenu() {
 
-    const {logout} = useContext(UserContext)
+    const {logout, user} = useContext(Context)
 
     function classNames(...classes :any) {
         return classes.filter(Boolean).join(' ')
@@ -45,6 +46,18 @@ export default function UserMenu() {
                           </Link>
                         )}
                       </Menu.Item>
+                    { user.isAdmin ? 
+                    <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="/admin/products"
+                            className={classNames(active ? 'bg-gray-100 ' : '', 'block px-4 py-2 text-sm text-gray-700 ')}
+                          >
+                            <SettingsIcon/>
+                            .   Administar tienda
+                          </Link>
+                        )}
+                      </Menu.Item>: null}
                       <Menu.Item>
                         {({ active }) => (
                           <Link

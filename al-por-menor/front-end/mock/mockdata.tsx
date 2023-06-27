@@ -1,23 +1,22 @@
-const addDays = (days: any) => {
-    var date = new Date();
-    date.setDate(date.getDate() + days);
-    return new Date(date);
-  }
+import { addDays } from "@/app/helpers/date.helper";
+
+
+
 
 // userMockData.js
 export const users = [
     {
-        id: 1,
-      name: 'Juan',
-      lastName: 'Pérez',
-      email: 'juan@example.com',
-      password: 'contraseña123',
+      id: 1,
+      name: 'admin',
+      lastName: '',
+      email: 'admin@example.com',
+      password: '123',
       optCode: 1234,
       optExpiration: '2023-06-30',
-      isAdmin: false,
+      isAdmin: true,
     },
     {
-        id:2,
+      id:2,
       name: 'María',
       lastName: 'González',
       email: 'maria@example.com',
@@ -26,10 +25,25 @@ export const users = [
       optExpiration: '2023-06-30',
       isAdmin: false,
     },
+    {
+      id:3,
+      name: 'Juan',
+      lastName: 'Pérez',
+      email: 'juan@example.com',
+      password: 'contraseña123',
+      optCode: 9128,
+      optExpiration: '2023-06-30',
+      isAdmin: false,
+    },
+
     // Add more user objects as needed
   ];
+
+
+
   
   export const products =  [
+
     {
         productId: '1',
       name: 'Manzanas',
@@ -211,6 +225,9 @@ export const users = [
       imgUrl: 'https://www.lemonblossoms.com/wp-content/uploads/2022/03/Butter-Noodles-S5-500x375.jpg',
     },
   ];
+
+
+
 
 
   // productMockData.js

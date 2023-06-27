@@ -1,6 +1,5 @@
-import Header from '@/components/ui/header'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import Footer from "@/components/ui/footer"
+import Header from "@/components/ui/header"
 
 export default function DefaultLayout({
   children,
@@ -8,16 +7,17 @@ export default function DefaultLayout({
   children: React.ReactNode
 }) {  
 
-  return (
 
-    
+  return (
     <>
       <main className="grow">
-            <Header />
+        <Header />
 
         {children}
 
       </main>
+
+      <Footer />
     </>
   )
 }

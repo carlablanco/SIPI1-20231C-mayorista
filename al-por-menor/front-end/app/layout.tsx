@@ -2,7 +2,7 @@ import './css/style.css'
 import { Inter } from 'next/font/google'
 
 import Header from '@/components/ui/header'
-import {UserProvider} from '@/app/context/userContext'
+import { Provider } from './context/Context'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,12 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
-        <UserProvider>
+        <Provider>
           <div className="Simpleflex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-            <Header />
             {children}
           </div>
-        </UserProvider>
+        </Provider>
       </body>
     </html>
   )

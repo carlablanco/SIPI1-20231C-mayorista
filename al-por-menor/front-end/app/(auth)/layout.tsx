@@ -1,3 +1,5 @@
+import Header from "@/components/ui/header"
+
 export default function AuthLayout({
   children,
 }: {
@@ -5,7 +7,7 @@ export default function AuthLayout({
 }) {  
   return (
     <main className="grow">
-
+      {/* <Header /> */}
       {children}
 
     </main>

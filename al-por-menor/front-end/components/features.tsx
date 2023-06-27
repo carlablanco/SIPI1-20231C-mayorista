@@ -44,8 +44,13 @@ export default function Features() {
             {/* Content */}
             <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-                <h3 className="h3 mb-3">Descubrí nuestro sistema de compras</h3>
-                <p className="text-xl text-gray-600">¡Compra los productos que desees sin un mínimo requerido! ¡A mayor cantidad de compradores, menor será el precio final!</p>
+                <h3 className="h3 mb-3">¿Cómo funciona?</h3>
+                <p className="text-xl text-gray-600"> 
+              ¡A más gente, mejores ofertas! Cuantas más personas se sumen y más unidades se compren, más bajo será el precio final.
+              Los lunes, miércoles y viernes, realizamos compras directas al proveedor así negociamos precios más bajos y beneficios para todos.
+              Al finalizar el período de compra, recibirás un correo con el precio final de cada producto que adquiriste
+              y te vas a sorprender con el descuento que obtuviste según la cantidad de personas que se unieron a la compra con vos.
+              ¡Sumate ahora y empezá a ahorrar!</p>
               </div>
               {/* Tabs buttons */}
 

@@ -1,5 +1,4 @@
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import Header from "@/components/ui/header"
 
 export default function DefaultLayout({
   children,
@@ -12,7 +11,7 @@ export default function DefaultLayout({
     
     <>
       <main className="grow">
-
+        <Header/>
         {children}
 
       </main>

@@ -13,7 +13,7 @@ export default function DefaultLayout({
     
     <>
       <main className="grow">
-            <Header />
+        <Header />
 
         {children}
 

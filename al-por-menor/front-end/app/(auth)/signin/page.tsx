@@ -4,14 +4,14 @@ export const metadata = {
 }
 'use client'
 
-import { UserContext } from '@/app/context/userContext'
+import { Context } from '@/app/context/Context'
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 
 
 export default function SignIn() {
 
-  const {login} = useContext(UserContext)
+  const {login,authUser} = useContext(Context)
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -43,8 +43,8 @@ export default function SignIn() {
           </div>
 
           {/* Form */}
-          <div className="max-w-sm mx-auto">
-            <form>
+          <div className="max-w-sm mx-auto" >
+            <form >
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Mail</label>
@@ -72,7 +72,7 @@ export default function SignIn() {
               </div>
               <div className="flex flex-wrap -mx-3 mt-6">
                 <div className="w-full px-3">
-                  <Link href={'/'} className="btn text-white bg-blue-600 hover:bg-blue-700 w-full" onClick={()=> iniciarSesion()}>Iniciar Sesión</Link>
+                  <label className="btn text-white bg-blue-600 hover:bg-blue-700 w-full cursor-pointer" onClick={()=> iniciarSesion()}>Iniciar Sesión</label>
                 </div>
               </div>
             </form>

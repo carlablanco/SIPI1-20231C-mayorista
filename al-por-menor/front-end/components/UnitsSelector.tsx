@@ -27,24 +27,39 @@ const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitC
     const newValue = parseInt(event.target.value, 10);
     if (!isNaN(newValue)) {
       handleUnitChange(newValue);
+    } else {
+      handleUnitChange(0);
     }
   };
 
   return (
-    <FormControl>
+    <div className="w-full flex items-center">
+    <div className="flex flex-grow">
+      <IconButton
+        aria-label="decrement"
+        onClick={handleDecrement}
+        className="p-8 rounded"
+        style={{ minWidth: 0 }}
+      >
+        <Remove fontSize="small" />
+      </IconButton>
       <Input
         id="unit-input"
         type="number"
         value={selectedUnit}
         onChange={handleInputChange}
+        className="w-full text-center"
       />
-      <IconButton aria-label="decrement" onClick={handleDecrement}>
-        <Remove />
+      <IconButton
+        aria-label="increment"
+        onClick={handleIncrement}
+        className="p-8 rounded"
+        style={{ minWidth: 0 }}
+      >
+        <Add fontSize="small" />
       </IconButton>
-      <IconButton aria-label="increment" onClick={handleIncrement}>
-        <Add />
-      </IconButton>
-    </FormControl>
+    </div>
+  </div>
   );
 };
 
