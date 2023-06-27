@@ -3,6 +3,7 @@ import { useState , useEffect, useContext } from 'react'
 import './styles.css'
 import { Context } from '../context/Context'
 import Link from 'next/link'
+import { MAX_ITEMS_IN_CART } from '../constants'
 
 export default function CartPage() {
 
@@ -10,7 +11,7 @@ export default function CartPage() {
   const [ total , setTotal ] = useState(0)
   const [ envio, setEnvio ] = useState(0)
 
-  const {cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart} = useContext(Context)
+  const {cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems} = useContext(Context)
   
 
   function calcTotal() {
@@ -78,7 +79,7 @@ export default function CartPage() {
                   <div className='quantity-container'>
                     <button onClick={()=> decrementQuant(item.product.productId,item.quantity)}>-</button>
                     <h3>{item.quantity}</h3>
-                    <button onClick={()=> incrementQuantity(item.product.productId)}>+</button>
+                    <button disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART} onClick={()=> incrementQuantity(item.product.productId)}>+</button>
                   </div>
                   <button className='remove-btn' onClick={()=> removeItemFromCart(item.product.productId)}>X</button>
                 </div>
