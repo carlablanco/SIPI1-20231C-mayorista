@@ -12,7 +12,7 @@ export default function CreditsMenu() {
 
         function creditHelp() {
             swal('¿Que son AxM Points?', 
-            `Los AxM Points son la moneda virtual de nuestra tienda. Estos puntos pueden ser utilizados como medio de pago en tus compras.` , 'info')
+            `Los AxM Points son la moneda virtual de nuestra tienda. Estos puntos pueden ser utilizados como medio de pago en tus compras. \n\n Cuando usas AxM points para pagar tus compras, te aseguramos que pagaras siempre el minimo precio obtenido de los productos seleccionados!` , 'info')
         }
 
   return (

@@ -4,6 +4,7 @@ import './styles.css'
 import { Context } from '../context/Context'
 import Link from 'next/link'
 import { MAX_ITEMS_IN_CART } from '../constants'
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function CartPage() {
 
@@ -63,11 +64,13 @@ export default function CartPage() {
   return (
     <div className='cart-main-container'>
       <h1>Shopping Cart</h1>
+      <div className='max-products-alert'>
+          {calculateTotalItems() >= MAX_ITEMS_IN_CART &&  <h2 className=' text-blue-700'><InfoIcon/>Has alcanzado el máximo de productos en el carrito</h2>}
+        </div>
       <div className='cart-container'>
         <div className='items-container'>
           { cartItems.length === 0 ? <h2>No hay productos en el carrito</h2> :
             cartItems.map((item:any, index:number) => {
-              // console.log(item)
               return (
                 <div key={index} className='cart-item' data-aos="fade-down">
                   <img src={item.product.imgUrl} alt="" />
