@@ -42,24 +42,6 @@ export function ProductList(this: any) {
 
   const handleFilter = (event: SelectChangeEvent) => {
     setFilter(event.target.value);
-
-    switch (event.target.value) {
-      case 'bestoffer':
-        products.sort((a, b) => a.unitsSold - b.unitsSold);
-        break;
-
-      case 'alpha':
-        products.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-
-      case 'pricelow':
-        products.sort((a, b) => getPublicPrice(a) - getPublicPrice(b));
-        break;
-
-      case 'pricehigh':
-        products.sort((a, b) => getPublicPrice(b) - getPublicPrice(a));
-        break;
-    }
   };
 
   const filteredProducts = products.filter((product: IProductPromotion) => {
@@ -74,6 +56,26 @@ export function ProductList(this: any) {
       return matchesCategory && matchesSearchTerm;
     }
   });
+
+  var sortedProducts = filteredProducts;
+
+  switch (filter) {
+    case 'bestoffer':
+      sortedProducts = filteredProducts.sort((a, b) => a.unitsSold - b.unitsSold);
+      break;
+
+    case 'alpha':
+      sortedProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+
+    case 'pricelow':
+      sortedProducts = filteredProducts.sort((a, b) => getPublicPrice(a) - getPublicPrice(b));
+      break;
+
+    case 'pricehigh':
+      sortedProducts = filteredProducts.sort((a, b) => getPublicPrice(b) - getPublicPrice(a));
+      break;
+  }
 
 
   return (
@@ -130,7 +132,7 @@ export function ProductList(this: any) {
         </div>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {filteredProducts.map((product: IProductPromotion, index: any) => (
+          {sortedProducts.map((product: IProductPromotion, index: any) => (
             <Product key={index} product={product} />
           ))}
         </div>
