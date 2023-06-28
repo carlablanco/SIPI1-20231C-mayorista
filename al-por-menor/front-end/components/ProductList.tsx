@@ -29,7 +29,7 @@ export function ProductList(this: any) {
   };
 
   function getPublicPrice(product: any) {
-    let currentPrice = product.priceList[0].price;
+    var currentPrice = product.priceList[0].price;
 
     product.priceList.forEach((price: any) => {
       if (price.unitsNeeded <= product.unitsSold) {
