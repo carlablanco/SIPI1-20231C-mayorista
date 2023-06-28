@@ -48,10 +48,6 @@ export function ProductList(this: any) {
         products.sort((a, b) => a.unitsSold - b.unitsSold);
         break;
 
-      case 'bestseller':
-        products.sort((a, b) => a.unitsSold - b.unitsSold);
-        break;
-
       case 'alpha':
         products.sort((a, b) => a.name.localeCompare(b.name));
         break;
@@ -126,7 +122,6 @@ export function ProductList(this: any) {
               onChange={handleFilter}
             >
               <MenuItem value={'bestoffer'}>Mejores ofertas</MenuItem>
-              <MenuItem value={'bestseller'}>Más vendidos</MenuItem>
               <MenuItem value={'alpha'}>Alfabeticamente</MenuItem>
               <MenuItem value={'pricelow'}>Precio de menor a mayor</MenuItem>
               <MenuItem value={'pricehigh'}>Precio de mayor a menor</MenuItem>
