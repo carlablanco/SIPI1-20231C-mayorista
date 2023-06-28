@@ -20,11 +20,10 @@
 
 }
 
-.group {
+.product-group, .button-group {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     align-items: center;
 }
 
