@@ -28,11 +28,11 @@ export function ProductList(this: any) {
     setSelectedCategory(event.target.value);
   };
 
-  function getPrice(prd: Product) {
-    let currentPrice = prd.priceList[0].price;
+  function getPublicPrice(product: any) {
+    let currentPrice = product.priceList[0].price;
 
-    prd.priceList.forEach((price: any) => {
-      if (price.unitsNeeded <= a.unitsSold) {
+    product.priceList.forEach((price: any) => {
+      if (price.unitsNeeded <= product.unitsSold) {
         currentPrice = price.price;
       }
     });
@@ -48,12 +48,20 @@ export function ProductList(this: any) {
         products.sort((a, b) => a.unitsSold - b.unitsSold);
         break;
 
+      case 'bestseller':
+        products.sort((a, b) => a.unitsSold - b.unitsSold);
+        break;
+
       case 'alpha':
         products.sort((a, b) => a.name.localeCompare(b.name));
         break;
 
       case 'pricelow':
-        products.sort((a, b) => { getPrice(a) - getPrice(b) });
+        products.sort((a, b) => getPublicPrice(a) - getPublicPrice(b));
+        break;
+
+      case 'pricehigh':
+        products.sort((a, b) => getPublicPrice(b) - getPublicPrice(a));
         break;
     }
   };
@@ -118,8 +126,10 @@ export function ProductList(this: any) {
               onChange={handleFilter}
             >
               <MenuItem value={'bestoffer'}>Mejores ofertas</MenuItem>
+              <MenuItem value={'bestseller'}>Más vendidos</MenuItem>
               <MenuItem value={'alpha'}>Alfabeticamente</MenuItem>
               <MenuItem value={'pricelow'}>Precio de menor a mayor</MenuItem>
+              <MenuItem value={'pricehigh'}>Precio de mayor a menor</MenuItem>
             </Select>
           </div>
         </div>
