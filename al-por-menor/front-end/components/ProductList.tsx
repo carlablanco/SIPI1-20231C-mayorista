@@ -14,7 +14,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export function ProductList(this: any) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState(1);
+  const [filter, setFilter] = useState('bestoffer');
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -28,9 +28,34 @@ export function ProductList(this: any) {
     setSelectedCategory(event.target.value);
   };
 
+  function getPrice(prd: Product) {
+    let currentPrice = prd.priceList[0].price;
+
+    prd.priceList.forEach((price: any) => {
+      if (price.unitsNeeded <= a.unitsSold) {
+        currentPrice = price.price;
+      }
+    });
+
+    return currentPrice;
+  }
+
   const handleFilter = (event: SelectChangeEvent) => {
     setFilter(event.target.value);
-    console.log(event.target.value);
+
+    switch (event.target.value) {
+      case 'bestoffer':
+        products.sort((a, b) => a.unitsSold - b.unitsSold);
+        break;
+
+      case 'alpha':
+        products.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+
+      case 'pricelow':
+        products.sort((a, b) => { getPrice(a) - getPrice(b) });
+        break;
+    }
   };
 
   const filteredProducts = products.filter((product: IProductPromotion) => {
@@ -92,9 +117,9 @@ export function ProductList(this: any) {
               value={filter}
               onChange={handleFilter}
             >
-              <MenuItem value={1}>Mejores ofertas</MenuItem>
-              <MenuItem value={2}>Alfabeticamente</MenuItem>
-              <MenuItem value={3}>Precio de menor a mayor</MenuItem>
+              <MenuItem value={'bestoffer'}>Mejores ofertas</MenuItem>
+              <MenuItem value={'alpha'}>Alfabeticamente</MenuItem>
+              <MenuItem value={'pricelow'}>Precio de menor a mayor</MenuItem>
             </Select>
           </div>
         </div>
