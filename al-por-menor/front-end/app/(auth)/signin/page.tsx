@@ -1,7 +1,3 @@
-export const metadata = {
-  title: 'Iniciar Sesión',
-  description: 'Page description',
-}
 'use client'
 
 import { Context } from '@/app/context/Context'
