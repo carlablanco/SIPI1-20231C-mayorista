@@ -23,7 +23,7 @@ export default function LinearWithValueLabel(props: any) {
     }, [props.progress]);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box className="mb-3" sx={{ width: '100%' }}>
       <LinearProgressWithLabel value={props.progress} />
     </Box>
   );
