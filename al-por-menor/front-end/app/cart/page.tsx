@@ -99,7 +99,7 @@ export default function CartPage() {
                     <button onClick={()=> decrementQuant(item.product.productId,item.quantity)}>-</button>
                     <h3>{item.quantity}</h3>
                     <button onClick={()=> incrementQuantity(item.product.productId)}>+</button>
-
+                    <h3 className='item-price'>${(discountedPrice * item.quantity)}</h3>
                   </div>
                   <button className='remove-btn' onClick={()=> removeItemFromCart(item.product.productId)}>X</button>
                 </div>
