@@ -1,6 +1,8 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { FormControl, InputLabel, Input, IconButton } from '@mui/material';
 import { Add, Remove } from '@mui/icons-material';
+import { Context } from '@/app/context/Context';
+import { MAX_ITEMS_IN_CART } from '@/app/constants';
 
 interface UnitsSelectorProps {
   selectedUnit: number;
@@ -10,6 +12,9 @@ interface UnitsSelectorProps {
 }
 
 const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitChange, min, max }) => {
+
+  const { cartItems, calculateTotalItems } = useContext(Context);
+
   const handleIncrement = () => {
     if (typeof max === 'undefined' || selectedUnit < max) {
       handleUnitChange(selectedUnit + 1);
@@ -26,16 +31,25 @@ const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitC
     event.preventDefault();
     const newValue = parseInt(event.target.value, 10);
     if (!isNaN(newValue)) {
+      if(newValue > MAX_ITEMS_IN_CART) {
+        return;
+      }
       handleUnitChange(newValue);
     } else {
       handleUnitChange(0);
     }
   };
 
+  useEffect(() => {
+  }, [cartItems]);
+
+
+
   return (
     <div className="w-full flex items-center mb-3">
     <div className="flex flex-grow">
       <IconButton
+        disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART || selectedUnit <= 0 }
         aria-label="decrement"
         onClick={handleDecrement}
         className="p-8 rounded"
@@ -44,6 +58,7 @@ const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitC
         <Remove fontSize="small" />
       </IconButton>
       <Input
+        disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART || selectedUnit >= MAX_ITEMS_IN_CART}
         id="unit-input"
         type="number"
         value={selectedUnit}
@@ -51,6 +66,7 @@ const UnitsSelector: React.FC<UnitsSelectorProps> = ({ selectedUnit, handleUnitC
         className="w-full text-center"
       />
       <IconButton
+        disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART  || selectedUnit >= MAX_ITEMS_IN_CART}
         aria-label="increment"
         onClick={handleIncrement}
         className="p-8 rounded"

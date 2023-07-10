@@ -12,6 +12,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import RemainingTime from './RemainingTime'
 import swal from 'sweetalert'
 import { Context } from '@/app/context/Context'
+import { MAX_ITEMS_IN_CART } from '@/app/constants'
 
 interface ProductProps {
   product: IProductPromotion
@@ -20,7 +21,7 @@ interface ProductProps {
 
 export const Product: React.FC<ProductProps> = ({product}) => {
 
-  const { addItemToCart } = useContext(Context);
+  const { addItemToCart, calculateTotalItems } = useContext(Context);
 
   const originalUnitsSold = product.unitsSold;
 
@@ -61,7 +62,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
     setPrice(currentPrice);
     setUnitsNeeded(currentUnitsNeeded);
     if(nextUnitsNeeded === 0) setProgress(100);
-    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded)) )) {
+    else if((price !== product.priceList[product.priceList?.length - 1].price) && (price != product?.priceList[0]?.price || ((price === product?.priceList[0]?.price && unitsSold === previousUnitsNeeded))) && selectedUnit > 0) {
       setProgress(((unitsSold - previousUnitsNeeded)  / (nextUnitsNeeded - previousUnitsNeeded)) * 100);
     }
     else setProgress(((unitsSold)  / nextUnitsNeeded) * 100);
@@ -87,7 +88,7 @@ export const Product: React.FC<ProductProps> = ({product}) => {
   
 
   return (
-    <div className="group product-info-container" key={product.productId} data-aos="zoom-y-out">
+    <div className="product-group product-info-container" key={product.productId} data-aos="zoom-y-out">
         <Link href={{
           pathname: `product/${product.productId}`,
           query: { productId: product.productId },
@@ -135,10 +136,10 @@ export const Product: React.FC<ProductProps> = ({product}) => {
                 selectedUnit={selectedUnit}
                 handleUnitChange={handleUnitChange}
                 min={0}
-                max={1000 - product.unitsSold}
+                max={500 - product.unitsSold}
               />
               <ProgressBar progress={progress}/>
-          <button onClick={() => handleAddItemToCart(product)} className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
+          <button disabled={calculateTotalItems() >= MAX_ITEMS_IN_CART} onClick={() => handleAddItemToCart(product)} className="button-group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600">Añadir al carrito</button>
         </div>
 
     </div>

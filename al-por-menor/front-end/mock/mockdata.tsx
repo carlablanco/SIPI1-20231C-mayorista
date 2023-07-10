@@ -1,8 +1,4 @@
-const addDays = (days: any) => {
-    var date = new Date();
-    date.setDate(date.getDate() + days);
-    return new Date(date);
-  }
+import { addDays } from "@/app/helpers/date.helper";
 
 
 
@@ -10,7 +6,7 @@ const addDays = (days: any) => {
 // userMockData.js
 export const users = [
     {
-        id: 1,
+      id: 1,
       name: 'admin',
       lastName: '',
       email: 'admin@example.com',
@@ -20,7 +16,7 @@ export const users = [
       isAdmin: true,
     },
     {
-        id:2,
+      id:2,
       name: 'María',
       lastName: 'González',
       email: 'maria@example.com',
@@ -30,7 +26,7 @@ export const users = [
       isAdmin: false,
     },
     {
-        id:3,
+      id:3,
       name: 'Juan',
       lastName: 'Pérez',
       email: 'juan@example.com',
@@ -60,9 +56,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 10,
       priceList: [
-        { price: 500, unitsNeeded: 10 },
-        { price: 400, unitsNeeded: 50 },
-        { price: 350, unitsNeeded: 100 },
+        { price: 500, unitsNeeded: 0 },
+        { price: 400, unitsNeeded: 10 },
+        { price: 350, unitsNeeded: 30 },
       ],
       imgUrl: 'https://parade.com/.image/t_share/MTkwNTgxNDY1MzcxMTkxMTY0/different-types-of-apples-jpg.jpg',
     },
@@ -78,9 +74,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 20,
       priceList: [
-        { price: 1000, unitsNeeded: 10 },
-        { price: 900, unitsNeeded: 50 },
-        { price: 750, unitsNeeded: 100 },
+        { price: 1000, unitsNeeded: 0 },
+        { price: 900, unitsNeeded: 10 },
+        { price: 750, unitsNeeded: 30 },
       ],
       imgUrl: 'https://i.imgur.com/KUuRtTc.jpeg',
     },
@@ -94,11 +90,11 @@ export const users = [
       category: 'Lacteos',
       promotionStartDate: new Date(),
       promotionEndDate: addDays(1),
-      unitsSold: 110,
+      unitsSold: 10,
       priceList: [
-        { price: 500, unitsNeeded: 10 },
-        { price: 400, unitsNeeded: 50 },
-        { price: 350, unitsNeeded: 100 },
+        { price: 500, unitsNeeded: 0 },
+        { price: 400, unitsNeeded: 10 },
+        { price: 350, unitsNeeded: 30 },
       ],
       imgUrl: 'https://t3.ftcdn.net/jpg/04/91/38/72/360_F_491387258_NDctlpVMBvUNazcVsj8d0xAFe5uP2Idy.jpg',
     },
@@ -112,11 +108,11 @@ export const users = [
       category: 'Lacteos',
       promotionStartDate: new Date(),
       promotionEndDate: addDays(1),
-      unitsSold: 50,
+      unitsSold: 5,
       priceList: [
-        { price: 800, unitsNeeded: 10 },
-        { price: 700, unitsNeeded: 50 },
-        { price: 550, unitsNeeded: 100 },
+        { price: 800, unitsNeeded: 0 },
+        { price: 700, unitsNeeded: 10 },
+        { price: 550, unitsNeeded: 30 },
       ],
       imgUrl: 'https://images-prod.healthline.com/hlcmsresource/images/AN_images/health-benefits-of-eggs-1296x728-feature.jpg',
     },
@@ -132,9 +128,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 7,
       priceList: [
-        { price: 1200, unitsNeeded: 10 },
-        { price: 900, unitsNeeded: 50 },
-        { price: 750, unitsNeeded: 100 },
+        { price: 1200, unitsNeeded: 0 },
+        { price: 900, unitsNeeded: 10 },
+        { price: 750, unitsNeeded: 30 },
       ],
       imgUrl: 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2022/10/Roast-Chicken-main.jpg',
     },
@@ -150,9 +146,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 20,
       priceList: [
-        { price: 500, unitsNeeded: 10 },
-        { price: 400, unitsNeeded: 50 },
-        { price: 350, unitsNeeded: 100 },
+        { price: 500, unitsNeeded: 0 },
+        { price: 400, unitsNeeded: 10 },
+        { price: 350, unitsNeeded: 30 },
       ],
       imgUrl: 'https://www.onceuponachef.com/images/2014/10/jasmine-rice-1.jpg',
     },
@@ -168,9 +164,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 9,
       priceList: [
-        { price: 200, unitsNeeded: 10 },
-        { price: 150, unitsNeeded: 50 },
-        { price: 50, unitsNeeded: 100 },
+        { price: 200, unitsNeeded: 0 },
+        { price: 150, unitsNeeded: 10 },
+        { price: 50, unitsNeeded: 30 },
       ],
       imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Tomato_je.jpg/1200px-Tomato_je.jpg',
     },
@@ -186,9 +182,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 10,
       priceList: [
-        { price: 700, unitsNeeded: 10 },
-        { price: 500, unitsNeeded: 50 },
-        { price: 350, unitsNeeded: 100 },
+        { price: 700, unitsNeeded: 0 },
+        { price: 500, unitsNeeded: 10 },
+        { price: 350, unitsNeeded: 30 },
       ],
       imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Bananas.jpg',
     },
@@ -204,9 +200,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 25,
       priceList: [
-        { price: 1200, unitsNeeded: 10 },
-        { price: 900, unitsNeeded: 50 },
-        { price: 750, unitsNeeded: 100 },
+        { price: 1200, unitsNeeded: 0 },
+        { price: 900, unitsNeeded: 10 },
+        { price: 750, unitsNeeded: 30 },
       ],
       imgUrl: 'https://www.tasteofhome.com/wp-content/uploads/2022/09/GettyImages-470340853.jpg',
     },
@@ -222,9 +218,9 @@ export const users = [
       promotionEndDate: addDays(1),
       unitsSold: 49,
       priceList: [
-        { price: 500, unitsNeeded: 10 },
-        { price: 300, unitsNeeded: 50 },
-        { price: 250, unitsNeeded: 100 },
+        { price: 500, unitsNeeded: 0 },
+        { price: 300, unitsNeeded: 10 },
+        { price: 250, unitsNeeded: 30 },
       ],
       imgUrl: 'https://www.lemonblossoms.com/wp-content/uploads/2022/03/Butter-Noodles-S5-500x375.jpg',
     },
@@ -243,9 +239,9 @@ export const users = [
       description: 'El sabor característico de Yerba Mate Taragüi. ',
       category: 'Alacena',
       priceList: [
-        { price: 1200, unitsNeeded: 10 },
-        { price: 900, unitsNeeded: 50 },
-        { price: 750, unitsNeeded: 100 },
+        { price: 1200, unitsNeeded: 0 },
+        { price: 900, unitsNeeded: 10 },
+        { price: 750, unitsNeeded: 30 },
       ],
       brand: 'Taragüi',
       imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Espanol-Yerba-Mate-Taragui-Con-Palo-250g-L.png',

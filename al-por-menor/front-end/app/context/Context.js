@@ -26,10 +26,7 @@ export const Provider = ({children}) => {
     }
 
 
-        // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
-            // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
-                // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
-
+    // SOLUCIONAR PROBLEMAS CON EL INICIO DE SESION
     const authUser = (userData) => {
         console.log(userData)
         users.forEach(u => {
@@ -43,6 +40,11 @@ export const Provider = ({children}) => {
         })
 
     }
+
+    // Calculate total items in cart
+    const calculateTotalItems = () => {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
+    };
 
 
     // Context Carrito
@@ -124,7 +126,7 @@ export const Provider = ({children}) => {
 
 
 
-    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart}}>
+    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems}}>
         {children}
     </Context.Provider>
 }

@@ -225,3 +225,63 @@ tr {
     text-align: center;
     justify-content: center;
 }
+
+/*Agregar producto*/
+
+.productoNuevo{
+    max-width: 900px;
+}
+
+.prodNombre{
+    margin-right: 2em;
+}
+
+.prodDesc{
+    margin-right: 2em;
+}
+.prodUnidad{
+    margin-right: 2em;
+    margin-top: 1.5em;
+}
+ .prodMarca{
+    margin-right: 2em;
+ }
+
+ .prodProv{
+    margin-right: 2em;
+ }
+
+ .prodCate{
+    margin-top: 1.5em;
+    margin-right: 2em;
+ }
+
+
+.prodPrecio{
+    margin-top: 1.5em;
+    margin-right: 2em;
+}
+
+.prodUrl{
+    margin-right: 2em;
+}
+ 
+.boton{
+    display: flex;
+    padding: .5em 1em;
+    margin-top: 2em;
+    background-color: #0070F4;
+    color: #f2f2f2;
+    border-radius: 5px;
+    width: 30em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.titulo{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
