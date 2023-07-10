@@ -8,8 +8,8 @@ import { userAddresses, userPaymentMethods } from '../../mock/mockdata';
 export default function PagoEnvio() {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
     const [selectedAddress, setSelectedAddress] = useState('');
-    const [selectedAddressData, setSelectedAddressData] = useState(null);
-    const [selectedPaymentMethodData, setSelectedPaymentMethodData] = useState(null);
+    const [selectedAddressData, setSelectedAddressData] = useState<any>(null);
+    const [selectedPaymentMethodData, setSelectedPaymentMethodData] = useState<any>(null);
 
     function handleAlert() {
         swal('Gracias por tu compra! ❤', 'Te estaremos enviando un correo con la confirmación.', 'success')
@@ -20,13 +20,13 @@ export default function PagoEnvio() {
     const filteredAddresses = userAddresses.filter(address => address.userId === userLoggedInId);
     const filteredPaymentMethods = userPaymentMethods.filter(paymentMethod => paymentMethod.userId === userLoggedInId);
 
-    const handleAddressSelection = (addressAlias) => {
+    const handleAddressSelection = (addressAlias: any) => {
         const selectedAddress = userAddresses.find(address => address.addressAlias === addressAlias);
         setSelectedAddressData(selectedAddress);
         setSelectedAddress(addressAlias);
     };
 
-    const handlePaymentMethodSelection = (cardAlias) => {
+    const handlePaymentMethodSelection = (cardAlias: any) => {
         const selectedPaymentMethod = userPaymentMethods.find(paymentMethod => paymentMethod.cardAlias === cardAlias);
         setSelectedPaymentMethodData(selectedPaymentMethod);
         setSelectedPaymentMethod(cardAlias);

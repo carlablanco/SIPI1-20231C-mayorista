@@ -36,7 +36,7 @@ export const Sub: React.FC<ProductProps> = ({id}) => {
 
     const {addItemToCart} = useContext(Context);
 
-    const product = products.find((product) => product.productId === id) || defautProduct;
+    const product: any = products.find((product) => product.productId === id) || defautProduct;
     const originalUnitsSold = product.unitsSold;
 
     const [selectedUnit, setSelectedUnit] = useState<number>(0);
