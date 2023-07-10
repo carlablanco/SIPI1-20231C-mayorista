@@ -22,7 +22,7 @@ export default function CreditsMenu() {
                         <HelpIcon className='info-alert'/>
                     </div>
                     <Menu.Button className="text-sm credits-btn">
-                        <h2 >AxM Points: <span>{3000}</span></h2>
+                        <h2 >AxM Points: <span>{6000}</span></h2>
                     </Menu.Button>
                   </div>
                   <Transition

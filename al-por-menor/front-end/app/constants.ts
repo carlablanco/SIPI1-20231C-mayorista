@@ -1,1 +1,1 @@
-export const MAX_ITEMS_IN_CART = 100;
+export const MAX_ITEMS_IN_CART = 25;
