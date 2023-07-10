@@ -23,7 +23,7 @@ const handleCategoryChange = (event: React.ChangeEvent<{ value: string }>) => {
   setSelectedCategory(event.target.value);
 };
 
-const filteredProducts = products.filter((product: IProductPromotion) => {
+const filteredProducts = products.filter((product: any) => {
   const matchesSearchTerm = product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase());
 
   if (!selectedCategory || selectedCategory === '') {
@@ -75,7 +75,7 @@ const filteredProducts = products.filter((product: IProductPromotion) => {
     </div>
 
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      {filteredProducts.map((product: IProductPromotion, index: any) => (
+      {filteredProducts.map((product: any, index: any) => (
         <Product key={index} product={product} />
       ))}
     </div>
