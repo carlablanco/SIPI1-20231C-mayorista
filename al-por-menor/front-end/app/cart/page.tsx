@@ -4,6 +4,7 @@ import './styles.css'
 import { Context } from '../context/Context'
 import Link from 'next/link'
 import { MAX_ITEMS_IN_CART } from '../constants'
+import InfoIcon from '@mui/icons-material/Info';
 
 export default function CartPage() {
   const [subtotalSinDescuentos, setSubtotalSinDescuentos] = useState(0)
@@ -11,27 +12,27 @@ export default function CartPage() {
   const [envio, setEnvio] = useState(0)
 
   const { cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems } = useContext(Context)
-
-  function calculateDiscount(priceList: any, unitsSold: any) {
+  
+  function calculateDiscount(priceList, unitsSold, quantity) {
+    let discount = null;
     for (let i = priceList.length - 1; i >= 0; i--) {
       const { price, unitsNeeded } = priceList[i];
-      if (unitsSold >= unitsNeeded) {
-        return priceList[0].price - price;
+      if (i!== 0 && (unitsSold + quantity) >= unitsNeeded) {
+        discount =  -(price - priceList[0].price);
+        return discount;
       }
     }
-    return 0;
+    return discount || 0;
   }
-
   function calcSubtotal() {
     let sbt = 0;
     let sbtsd = 0;
-    let e = 0;  
-
+    let e = 0;
 
     cartItems.forEach((item: any) => {
       const { product, quantity } = item;
       const originalPrice = product.priceList[0].price;
-      const discount = calculateDiscount(product.priceList, product.unitsSold);
+      const discount = calculateDiscount(product.priceList, product.unitsSold, quantity);
       const discountedPrice = originalPrice - discount;
 
       sbtsd += originalPrice * quantity;
@@ -77,6 +78,9 @@ export default function CartPage() {
   return (
     <div className='cart-main-container'>
       <h1>Shopping Cart</h1>
+      <div className='max-products-alert'>
+          {calculateTotalItems() >= MAX_ITEMS_IN_CART &&  <h2 className=' text-blue-700'><InfoIcon/>Has alcanzado el máximo de productos en el carrito</h2>}
+        </div>
       <div className='cart-container'>
         <div className='items-container'>
           {cartItems.length === 0 ? (
@@ -85,7 +89,7 @@ export default function CartPage() {
             cartItems.map((item: any, index: any) => {
               const { product, quantity } = item;
               const originalPrice = product.priceList[0].price;
-              const discount = calculateDiscount(product.priceList, product.unitsSold);
+              const discount = calculateDiscount(product.priceList, product.unitsSold, quantity);
               const discountedPrice = originalPrice - discount;
 
               return (
