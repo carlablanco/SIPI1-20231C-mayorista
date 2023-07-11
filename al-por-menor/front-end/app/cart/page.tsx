@@ -12,7 +12,7 @@ export default function CartPage() {
   const [envio, setEnvio] = useState(0)
 
   const { cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems } = useContext(Context)
-
+  
   function calculateDiscount(priceList, unitsSold, quantity) {
     let discount = null;
     for (let i = priceList.length - 1; i >= 0; i--) {
@@ -29,7 +29,7 @@ export default function CartPage() {
     let sbtsd = 0;
     let e = 0;
 
-    cartItems.forEach((item) => {
+    cartItems.forEach((item: any) => {
       const { product, quantity } = item;
       const originalPrice = product.priceList[0].price;
       const discount = calculateDiscount(product.priceList, product.unitsSold, quantity);
@@ -53,7 +53,7 @@ export default function CartPage() {
     calcSubtotal();
   }, [cartItems]);
 
-  function decrementQuant(productId, quantity) {
+  function decrementQuant(productId: any, quantity: any) {
     if (quantity === 1) {
       removeItemFromCart(productId);
     } else {
@@ -86,7 +86,7 @@ export default function CartPage() {
           {cartItems.length === 0 ? (
             <h2>No hay productos en el carrito</h2>
           ) : (
-            cartItems.map((item, index) => {
+            cartItems.map((item: any, index: any) => {
               const { product, quantity } = item;
               const originalPrice = product.priceList[0].price;
               const discount = calculateDiscount(product.priceList, product.unitsSold, quantity);

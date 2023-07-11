@@ -15,11 +15,27 @@ import { Context } from '@/app/context/Context'
 import { MAX_ITEMS_IN_CART } from '@/app/constants'
 
 interface ProductProps {
-  product: IProductPromotion
+  product?: IProductPromotion
+}
+
+const defaultProduct: IProductPromotion = { 
+  productId: '',
+  name: '',
+  description: '',
+  measurementUnit: '',
+  brand: '',
+  supplyingCompany: '',
+  category: '',
+  priceList: [],
+  imgUrl: '',
+  unitsSold: 0,
+  promotionStartDate: new Date(),
+  promotionEndDate: new Date(),
 }
 
 
-export const Product: React.FC<ProductProps> = ({product}) => {
+export const Product: React.FC<any> = ({product}) => {
+  product = product || defaultProduct;
 
   const { addItemToCart, calculateTotalItems } = useContext(Context);
 
