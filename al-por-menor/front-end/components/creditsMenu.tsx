@@ -1,10 +1,13 @@
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import HelpIcon from '@mui/icons-material/Help';
 import swal from 'sweetalert';
+import { Context } from '@/app/context/Context';
 
 export default function CreditsMenu() {
+
+        const {points} = useContext(Context)
 
         function classNames(...classes :any) {
         return classes.filter(Boolean).join(' ')
@@ -22,7 +25,7 @@ export default function CreditsMenu() {
                         <HelpIcon className='info-alert'/>
                     </div>
                     <Menu.Button className="text-sm credits-btn">
-                        <h2 >AxM Points: <span>{6000}</span></h2>
+                        <h2 >AxM Points: <span>{points}</span></h2>
                     </Menu.Button>
                   </div>
                   <Transition

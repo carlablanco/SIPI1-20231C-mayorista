@@ -125,12 +125,22 @@ export const Provider = ({children}) => {
 
 
 
+  const [total, setTotal] = useState(0);
+  
+  const calculateTotal = (t) => {
+    setTotal(t)
+  }
 
-    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems}}>
+  const [points, setPoints] = useState(6000);
+
+  const removePoints = () => {
+        setPoints(points - total);
+    }
+
+
+    return <Context.Provider value={{user, logged, login, logout, authUser, addItemToCart, cartItems, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems, points, removePoints, calculateTotal, total}}>
         {children}
     </Context.Provider>
 }
-
-
 
 

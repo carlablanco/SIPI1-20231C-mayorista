@@ -11,9 +11,9 @@ export default function CartPage() {
   const [subtotal, setSubtotal] = useState(0)
   const [envio, setEnvio] = useState(0)
 
-  const { cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems } = useContext(Context)
+  const {calculateTotal, total, cartItems, addItemToCart, incrementQuantity, decrementQuantity, removeItemFromCart, calculateTotalItems } = useContext(Context)
   
-  function calculateDiscount(priceList, unitsSold, quantity) {
+  function calculateDiscount(priceList:any, unitsSold:any, quantity:any) {
     let discount = null;
     for (let i = priceList.length - 1; i >= 0; i--) {
       const { price, unitsNeeded } = priceList[i];
@@ -134,12 +134,12 @@ export default function CartPage() {
             <div className='order-detail-container'>
               <div className='order-detail'>
                 <h4 className='order-label'>Total</h4>
-                <h4>${subtotal + envio}</h4>
+                <h4>${subtotal+envio}</h4>
               </div>
             </div>
           </div>
           <button>
-            <Link href={"/pago-envio"}>Comprar</Link>
+            <Link href={"/pago-envio"} onClick={()=> calculateTotal(subtotal+envio)}>Comprar</Link>
           </button>
         </div>
       </div>
