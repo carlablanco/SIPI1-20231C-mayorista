@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./stylesPE.css";
 import Link from 'next/link';
 import swal from 'sweetalert';
 import { userAddresses, userPaymentMethods } from '../../mock/mockdata';
+import { Context } from '../context/Context';
 
 export default function PagoEnvio() {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
@@ -11,7 +12,12 @@ export default function PagoEnvio() {
     const [selectedAddressData, setSelectedAddressData] = useState<any>(null);
     const [selectedPaymentMethodData, setSelectedPaymentMethodData] = useState<any>(null);
 
+    const {removePoints} = useContext(Context) 
+
     function handleAlert() {
+        if (selectedPaymentMethodData.cardAlias != 'AxM Points'){
+            removePoints()
+        }
         swal('Gracias por tu compra! ❤', 'Te estaremos enviando un correo con la confirmación.', 'success')
     }
 
@@ -78,10 +84,14 @@ export default function PagoEnvio() {
                                     ))}
                                 </select>
                             </label>
-                            {selectedPaymentMethodData && (
+                            {selectedPaymentMethodData && ( 
+                                selectedPaymentMethodData.cardAlias != 'AxM Points' ?
                                 <div className="pretty-text">
                                     <p>Titular de la tarjeta: {selectedPaymentMethodData.cardHolderName}</p>
                                     <p>Número de tarjeta: **** **** **** {selectedPaymentMethodData.cardNumber.slice(-4)}</p>
+                                </div> :
+                                <div className='pretty-text'>
+                                    <p>AxM Points</p>
                                 </div>
                             )}
                         </div>
