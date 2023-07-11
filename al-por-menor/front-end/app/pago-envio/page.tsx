@@ -12,12 +12,11 @@ export default function PagoEnvio() {
     const [selectedAddressData, setSelectedAddressData] = useState<any>(null);
     const [selectedPaymentMethodData, setSelectedPaymentMethodData] = useState<any>(null);
 
-    const {removePoints} = useContext(Context) 
+    const {removePoints, removeAllItemsFromCart} = useContext(Context) 
 
     function handleAlert() {
-        if (selectedPaymentMethodData.cardAlias != 'AxM Points'){
-            removePoints()
-        }
+        removePoints();
+        removeAllItemsFromCart();
         swal('Gracias por tu compra! ❤', 'Te estaremos enviando un correo con la confirmación.', 'success')
     }
 
